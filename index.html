@@ -54,8 +54,10 @@
           <div style="flex:1;overflow:hidden;padding:26px 24px 12px;display:flex;flex-direction:column;gap:14px">
             <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;letter-spacing:0.2em;color:#5a6280">A VIAGEM</div>
             <div style="font-size:14.5px;line-height:1.5;text-wrap:pretty"><b>10 dias</b> · 21 a 30 de setembro · Londres e Cotswolds</div>
-            <div style="font-size:14.5px;line-height:1.5;text-wrap:pretty"><b>Londres:</b> The Kensington · 4 noites</div>
-            <div style="font-size:14.5px;line-height:1.5;text-wrap:pretty"><b>Cotswolds:</b> The Slaughters Manor House · Lucknam Park</div>
+            <div style="font-size:14.5px;line-height:1.5;text-wrap:pretty"><b>Londres:</b> The Kensington · 22 a 26/09</div>
+            <div style="font-size:14.5px;line-height:1.5;text-wrap:pretty"><b>Cotswolds:</b> The Slaughters Manor House · 26 a 28/09</div>
+            <div style="font-size:14.5px;line-height:1.5;text-wrap:pretty"><b>Wiltshire:</b> Lucknam Park · 28 a 30/09</div>
+            <div style="font-size:14.5px;line-height:1.5;text-wrap:pretty"><b>Carro:</b> 26 a 30/09</div>
             <div style="font-size:14.5px;line-height:1.5;text-wrap:pretty"><b>Voos:</b> LA8084 ida · LA8085 volta · cód. LPPVIW</div>
             <div style="padding:10px 13px;border-radius:13px;background:#fffdf8;font-size:12.5px;line-height:1.45;text-wrap:pretty">Cada card é um dia. Arraste para o lado para avançar e vire a carta para ver curiosidades do lugar.</div>
           </div>
@@ -126,6 +128,9 @@
                   </sc-if>
                   <sc-if value="{{ day.icHouse }}" hint-placeholder-val="{{ false }}">
                     <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 9.2 10 3.2l7.4 6"/><path d="M4.6 10.6v6.2h10.8v-6.2"/><path d="M8.4 16.8v-4.2h3.2v4.2"/></svg>
+                  </sc-if>
+                  <sc-if value="{{ day.icCar }}" hint-placeholder-val="{{ false }}">
+                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13.4v-3l1.8-4.2a1.6 1.6 0 0 1 1.5-1h7.4a1.6 1.6 0 0 1 1.5 1L17 10.4v3"/><path d="M2.6 10.4h14.8v3.4H2.6z"/><circle cx="6" cy="15.6" r="1.4"/><circle cx="14" cy="15.6" r="1.4"/></svg>
                   </sc-if>
                   <sc-if value="{{ day.icFeather }}" hint-placeholder-val="{{ false }}">
                     <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16.6 3.4C10.6 4 6 8.2 4.6 14.6c6.4-1.4 10.8-5.8 12-11.2z"/><path d="M4.6 14.6 2.8 17.2"/><path d="M13.8 5.2 8.6 9M15 8.4l-4.6 3.4"/></svg>
@@ -210,7 +215,7 @@ const DAYS = [
       { t: '23:50', b: 'Decolagem GRU', q: 'Aeroporto Internacional de Guarulhos', x: ' · LA8084 · ~11h30 de voo' },
       { t: '15:05', b: 'Pouso em Heathrow', x: ' (+1 dia, horário local)', q: 'Heathrow Airport London' }
     ],
-    boxLabel: 'NA MOCHILA', boxText: 'Passaportes · comprovante do The Kensington · meias de compressão · garrafinha vazia · carregador e adaptador tipo G',
+    boxLabel: 'NA MOCHILA', boxText: 'Passaportes · comprovante do The Kensington · CNH e PID para alugar o carro · meias de compressão · garrafinha vazia · carregador e adaptador tipo G',
     foot: 'VOLTA · 30 set · LA8085 · 21:20 LHR → 04:45 GRU (+1)',
     extra: [
       { label: 'ANTES DE DESCER', items: [
@@ -271,7 +276,8 @@ const DAYS = [
       { t: '11:00', b: 'Buckingham Palace', q: 'Buckingham Palace London', x: ' · troca da guarda (conferir o dia: costuma ser 11h)' },
       { t: '12:30', b: 'Westminster', q: 'Westminster Abbey London', x: ' · abadia, Big Ben e a ponte para a margem sul' },
       { t: '14:30', b: 'London Eye', q: 'London Eye', x: ' · almoço leve no South Bank e a roda no fim da tarde' },
-      { t: '17:30', b: 'Tower Bridge', q: 'Tower Bridge London', x: ' · pôr do sol no rio e volta tranquila' }
+      { t: '17:30', b: 'Tower Bridge', q: 'Tower Bridge London', x: ' · pôr do sol no rio' },
+      { t: '19:30', b: 'Emilia\u2019s Pasta', q: 'Emilia\'s Crafted Pasta St Katharine Docks', x: ' · jantar em St Katharine Docks, ao lado da ponte' }
     ],
     boxLabel: 'PÉS', boxText: 'Dia mais longo de caminhada da viagem — tênis confortável e uma pausa de café sem culpa no meio.',
     extra: [
@@ -284,7 +290,7 @@ const DAYS = [
         { b: 'Troca da guarda: ', x: 'às 11h, em dias alternados — confirmar no site da Household Division na véspera. Chuva cancela.' },
         { b: 'Melhor vista de graça: ', x: 'o terraço do Tate Modern e a ponte do Millennium, ambos no South Bank.' },
         { b: 'London Eye: ', x: 'comprar horário marcado online evita 40 min de fila.' },
-        { b: 'Pausa: ', x: 'o mercadinho de comida do Southbank Centre é melhor que qualquer restaurante turístico da orla.' }
+        { b: 'Jantar: ', x: 'o Emilia\u2019s de St Katharine Docks fica a 5 min a pé da Tower Bridge, na marina. Vale reservar.' }
       ] }
     ],
     backLabel: 'CURIOSIDADES · SOUTH BANK',
@@ -303,7 +309,7 @@ const DAYS = [
       { t: '13:00', b: 'Penhaligon\u2019s', q: 'Penhaligon\'s Covent Garden London', x: ' · escolher um perfume com calma na loja' },
       { t: '15:30', b: 'Chá da tarde clássico', x: ' · reservar com antecedência (leva ~2h)' },
       { t: '18:30', b: 'Piccadilly Circus', q: 'Piccadilly Circus London', x: ' e Chinatown · luzes e um passeio sem pressa' },
-      { t: '20:30', b: 'Jantar', x: ' · Flat Iron, The Ivy ou Emilia\u2019s Pasta' }
+      { t: '20:30', b: 'Jantar', x: ' · Flat Iron ou The Ivy' }
     ],
     boxLabel: 'RESERVAS', boxText: 'Chá da tarde e The Ivy precisam de reserva. Flat Iron não aceita — chegar antes das 19h.',
     extra: [
@@ -359,25 +365,26 @@ const DAYS = [
     photo: 'vocês na frente de uma porta pastel de Notting Hill — as melhores estão na Lancaster Rd.',
     must: 'garimpar uma bobagem antiga na Portobello. Levar dinheiro em espécie para as bancas pequenas.' },
 
-  { n: '06', date: 'sáb 26 set', tone: 'sage', icon: 'Train', place: 'COTSWOLDS',
-    title: 'Trem para\nos Cotswolds', meta: 'PADDINGTON → CAMPO', bg: './bg-06.webp',
+  { n: '06', date: 'sáb 26 set', tone: 'sage', icon: 'Car', place: 'LONDRES → COTSWOLDS',
+    title: 'De carro para\nos Cotswolds', meta: 'DIA LIVRE · SEM ROTEIRO', bg: './bg-06.webp',
     rows: [
-      { t: '10:00', b: 'Check-out', x: ' do The Kensington e táxi até Paddington' },
-      { t: '11:30', b: 'Trem', q: 'Paddington Station London', x: ' · Paddington → Moreton-in-Marsh (~1h30)' },
-      { t: '14:00', b: 'The Slaughters Manor House', q: 'The Slaughters Manor House', x: ' · check-in e chá no jardim' },
-      { t: '16:30', b: 'Lower Slaughter', q: 'Lower Slaughter Gloucestershire', x: ' · volta a pé pelo riacho, 30 min' },
+      { t: '10:00', b: 'Check-out', x: ' do The Kensington, sem pressa' },
+      { t: '11:00', b: 'Retirar o carro', x: ' · conferir riscos, combustível e seguro' },
+      { t: '11:30', b: 'Estrada', x: ' · Londres → Lower Slaughter pela M40/A40 (~2h)' },
+      { t: '14:00', b: 'The Slaughters Manor House', q: 'The Slaughters Manor House', x: ' · check-in e tarde livre' },
       { t: '19:30', b: 'Jantar no hotel', x: ' · reserva confirmada' }
     ],
     boxLabel: 'RESERVA', boxText: '26/09 · 19:30 · restaurante do The Slaughters Manor House',
     extra: [
-      { label: 'MAIS CURIOSIDADES', items: [
-        { b: 'Paddington ', x: 'foi projetada por Brunel em 1854; o urso ganhou o nome da estação, não o contrário.' },
-        { b: 'Cotswold ', x: 'quer dizer algo como “colinas dos currais de ovelha” — e ainda há mais ovelha que gente na região.' },
-        { b: 'A Área de Beleza Natural ', x: 'dos Cotswolds cobre 2.000 km² e cinco condados. Nada pode ser construído fora do estilo local.' }
+      { label: 'GUIA DA ESTRADA', items: [
+        { b: 'Mão inglesa: ', x: 'dirige-se pela esquerda e as rotatórias giram no sentido horário — dá preferência a quem vem da direita.' },
+        { b: 'Saindo de Londres: ', x: 'evitar cruzar o centro (Congestion Charge). Pela A40 para o oeste o caminho é direto.' },
+        { b: 'Estradinhas: ', x: 'pista única com passing places — quem está mais perto do recuo para e dá passagem.' },
+        { b: 'Velocidade: ', x: 'placas em milhas. 30 mph nos vilarejos, 60 nas estradas simples, 70 na autoestrada. Radar é comum.' }
       ] },
-      { label: 'GUIA DO CAMPO', items: [
-        { b: 'Trem: ', x: 'Paddington → Moreton-in-Marsh é direto, ~1h30. Comprar antecipado e sentar à esquerda.' },
-        { b: 'Do trem ao hotel: ', x: 'pedir o transfer do manor na reserva — táxi na estação não é garantido.' },
+      { label: 'SE DER VONTADE', items: [
+        { b: 'Lower Slaughter: ', x: 'volta a pé pelo riacho, 30 min, saindo da porta do hotel.' },
+        { b: 'Upper Slaughter: ', x: 'o vilarejo vizinho fica a uma trilha curta pelos campos — ida e volta em 1h.' },
         { b: 'Ritmo: ', x: 'quase tudo fecha entre 17h e 18h nos vilarejos, e a cozinha do pub para às 21h.' },
         { b: 'Calçado: ', x: 'as trilhas entre vilarejos são de terra e barro, mesmo sem chuva no dia.' }
       ] }
@@ -386,121 +393,123 @@ const DAYS = [
     notes: [
       { b: 'Slaughter', x: ' não tem nada de sangrento: vem do inglês antigo slohtre, “lugar lamacento” — o vilarejo nasceu à beira do riacho.' },
       { b: 'A pedra dourada', x: ' das casas é calcário local do Jurássico; por lei de preservação, reformas precisam usar a mesma pedra.' },
-      { b: 'A região enriqueceu com lã', x: ' na Idade Média — as igrejas grandes demais para vilarejos pequenos são as “wool churches”.' }
+      { b: 'Cotswold', x: ' quer dizer algo como “colinas dos currais de ovelha” — e ainda há mais ovelha que gente na região.' }
     ],
     photo: 'a pontinha de pedra sobre o riacho de Lower Slaughter, com as casas douradas atrás.',
     must: 'o chá no jardim do manor no fim da tarde — é o momento mais inglês da viagem.' },
 
-  { n: '07', date: 'dom 27 set', tone: 'butter', icon: 'Plate', place: 'COTSWOLDS',
-    title: 'Sunday Roast\ne vilarejos', meta: 'DIA DE COMER DEVAGAR', bg: './bg-07.webp',
+  { n: '07', date: 'dom 27 set', tone: 'butter', icon: 'Plate', place: 'COTSWOLDS · NORTE',
+    title: 'Shakespeare e\nSunday Roast', meta: 'VILAREJOS · DE CARRO', bg: './bg-07.webp',
     rows: [
-      { t: '10:00', b: 'Bourton-on-the-Water', q: 'Bourton-on-the-Water', x: ' · as pontinhas sobre o rio Windrush' },
-      { t: '13:00', b: 'Sunday Roast', x: ' · almoço num pub do vilarejo (só domingo!)' },
-      { t: '16:00', b: 'Descanso no hotel', x: ' · jardim, lareira, nada de agenda' },
+      { t: '09:30', b: 'Stratford-upon-Avon', q: 'Shakespeare\'s Birthplace Stratford-upon-Avon', x: ' · casa de Shakespeare e o rio Avon (~40 min)' },
+      { t: '12:30', b: 'Sunday Roast', q: 'Broadway Worcestershire', x: ' · almoço num pub de Broadway (só domingo!)' },
+      { t: '14:30', b: 'Broadway Tower', q: 'Broadway Tower Worcestershire', x: ' · vista de 16 condados' },
+      { t: '16:00', b: 'Stow-on-the-Wold', q: 'Stow-on-the-Wold', x: ' · a porta da igreja entre duas árvores' },
       { t: '19:45', b: 'The Wild Rabbit', q: 'The Wild Rabbit Kingham', x: ' · jantar reservado' }
     ],
-    boxLabel: 'RESERVA', boxText: '27/09 · 19:45 · The Wild Rabbit, Kingham. Almoço de roast: reservar na manhã do dia ou chegar antes das 12h30.',
+    boxLabel: 'RESERVA', boxText: '27/09 · 19:45 · The Wild Rabbit, Kingham. Almoço de roast: reservar ou chegar antes das 12h30.',
     extra: [
       { label: 'MAIS CURIOSIDADES', items: [
-        { b: 'O gravy ', x: 'é feito do fundo da assadeira — para o inglês, é a parte mais importante do prato.' },
-        { b: 'Bourton ', x: 'tem um modelo em miniatura de si mesma, construído em 1937 na escala 1:9 e tombado como patrimônio.' },
-        { b: 'A carne muda com a região: ', x: 'beef com Yorkshire é o clássico, mas cordeiro com molho de menta é igualmente tradicional.' }
+        { b: 'Shakespeare ', x: 'nasceu e morreu em 23 de abril — e deixou em testamento a “segunda melhor cama” para a esposa.' },
+        { b: 'O Yorkshire pudding ', x: 'surgiu para aproveitar a gordura que pingava do assado; hoje é obrigatório no prato.' },
+        { b: 'Stow-on-the-Wold ', x: 'é o vilarejo mais alto dos Cotswolds, a 240 m, e sua feira de ovelhas já movimentou 20 mil cabeças por dia.' }
       ] },
-      { label: 'GUIA DO ROAST', items: [
-        { b: 'Onde: ', x: 'The Kingham Plough, The Bell at Langford e o próprio Wild Rabbit servem roast no domingo.' },
-        { b: 'Reserva: ', x: 'ligar na sexta. Os pubs bons de domingo enchem antes do fim de semana.' },
-        { b: 'Como pedir: ', x: 'escolhe-se a carne; batata, legumes, pudding e gravy vêm juntos.' },
-        { b: 'Depois: ', x: 'sticky toffee pudding é a sobremesa certa — dividir uma porção entre dois já é muito.' }
+      { label: 'GUIA DO DIA', items: [
+        { b: 'Stratford: ', x: 'o combo de três casas vale mais que a entrada só da Birthplace; tudo a pé no centro.' },
+        { b: 'Roteiro em círculo: ', x: 'hotel → Stratford 40 min, Stratford → Broadway 35 min, Broadway → Stow 25 min, Stow → hotel 10 min.' },
+        { b: 'Roast: ', x: 'escolhe-se a carne; batata, legumes, Yorkshire e gravy vêm juntos. Sticky toffee pudding de sobremesa.' },
+        { b: 'Quem dirige ', x: 'fica no refrigerante — o limite de álcool no Reino Unido é baixo e a fiscalização é séria.' }
       ] }
     ],
-    backLabel: 'CURIOSIDADES · SUNDAY ROAST',
+    backLabel: 'CURIOSIDADES · STRATFORD E ROAST',
     notes: [
+      { b: 'Shakespeare', x: ' nasceu e morreu em Stratford — e está enterrado na Holy Trinity Church, a 10 min do centro.' },
       { b: 'O Sunday roast', x: ' é herança da carne assada durante o culto de domingo — voltava-se da igreja e a refeição estava pronta.' },
-      { b: 'O Yorkshire pudding', x: ' surgiu para aproveitar a gordura que pingava do assado; hoje é obrigatório no prato.' },
-      { b: 'Bourton-on-the-Water', q: 'Bourton-on-the-Water', x: ' é chamada de “Veneza dos Cotswolds” pelas cinco pontes baixas de pedra do século XVIII.' }
+      { b: 'A Broadway Tower', x: ' é um “folly”: uma torre construída em 1798 só para enfeitar a paisagem de uma condessa.' }
     ],
-    photo: 'o prato do roast visto de cima, com o Yorkshire pudding inteiro.',
+    photo: 'os dois no banco à beira do Avon, com os barquinhos passando atrás.',
     must: 'o Sunday Roast. Só existe no domingo e costuma acabar às 15h — não deixar para depois.' },
 
-  { n: '08', date: 'seg 28 set', tone: 'sage', icon: 'House', place: 'COTSWOLDS',
-    title: 'Volta pelos\nvilarejos', meta: 'DIA DE CARRO / TÁXI', bg: './bg-08.webp',
+  { n: '08', date: 'seg 28 set', tone: 'sage', icon: 'Houses', place: 'COTSWOLDS → WILTSHIRE',
+    title: 'Vilarejos a\ncaminho de Lucknam', meta: 'TROCA DE HOTEL · DE CARRO', bg: './bg-08.webp',
     rows: [
-      { t: '09:30', b: 'Bibury', q: 'Arlington Row Bibury', x: ' · Arlington Row, a fileira de casas mais fotografada da Inglaterra' },
-      { t: '11:30', b: 'Castle Combe', q: 'Castle Combe Wiltshire', x: ' · vilarejo sem postes nem antenas à vista' },
-      { t: '13:30', b: 'Burford', q: 'Burford Oxfordshire', x: ' · almoço na rua principal em descida' },
-      { t: '15:30', b: 'Stow-on-the-Wold', q: 'Stow-on-the-Wold', x: ' · a porta da igreja entre duas árvores' },
-      { t: '17:00', b: 'Broadway Tower', q: 'Broadway Tower Worcestershire', x: ' · vista de 16 condados no fim da tarde' }
+      { t: '10:00', b: 'Bourton-on-the-Water', q: 'Bourton-on-the-Water', x: ' · check-out e as pontinhas do rio, a 5 min' },
+      { t: '12:00', b: 'Burford', q: 'Burford Oxfordshire', x: ' · almoço na rua principal em descida' },
+      { t: '14:00', b: 'Bibury', q: 'Arlington Row Bibury', x: ' · Arlington Row, a fileira de casas mais fotografada' },
+      { t: '16:00', b: 'Castle Combe', q: 'Castle Combe Wiltshire', x: ' · vilarejo sem postes nem antenas à vista' },
+      { t: '17:30', b: 'Lucknam Park', q: 'Lucknam Park Hotel & Spa', x: ' · check-in, a 15 min de Castle Combe' }
     ],
-    boxLabel: 'LOGÍSTICA', boxText: 'Sem carro, combinar um táxi por hora com o hotel — o transporte público entre vilarejos é raro.',
+    boxLabel: 'LOGÍSTICA', boxText: 'Malas no carro desde cedo. O caminho só desce para o sul: Bourton → Burford → Bibury → Castle Combe → hotel.',
     extra: [
       { label: 'MAIS CURIOSIDADES', items: [
         { b: 'Arlington Row ', x: 'está no verso do passaporte britânico — é oficialmente a imagem da Inglaterra rural.' },
-        { b: 'Stow-on-the-Wold ', x: 'é o vilarejo mais alto dos Cotswolds, a 240 m, e sua feira de ovelhas já movimentou 20 mil cabeças por dia.' },
+        { b: 'Bourton ', x: 'tem um modelo em miniatura de si mesma, construído em 1937 na escala 1:9 e tombado como patrimônio.' },
         { b: 'Burford ', x: 'era parada de diligências na estrada para Oxford; as portas largas dos hotéis antigos eram para as carruagens.' }
       ] },
       { label: 'GUIA DA ESTRADA', items: [
-        { b: 'Distâncias: ', x: 'Bibury→Burford 20 min, Burford→Stow 20 min, Stow→Broadway 25 min. Castle Combe é 1h ao sul, o desvio maior.' },
+        { b: 'Distâncias: ', x: 'Bourton→Burford 25 min, Burford→Bibury 20 min, Bibury→Castle Combe ~1h, Castle Combe→Lucknam 15 min.' },
         { b: 'Estacionamento: ', x: 'quase todo vilarejo tem um pay-and-display; levar moedas ou o app RingGo.' },
-        { b: 'Estradinhas: ', x: 'pista única com passing places — quem está mais perto do recuo para e dá passagem.' },
-        { b: 'A porta da igreja de Stow, ', x: 'entre dois teixos, é a foto mais procurada da região. Fica atrás do mercado.' }
+        { b: 'Bibury ', x: 'tem pouquíssima vaga — se lotar, parar um pouco mais longe e descer a pé até o riacho.' },
+        { b: 'Se cansar, ', x: 'cortar Burford. Castle Combe fica no caminho do hotel e fecha o dia bem.' }
       ] }
     ],
     backLabel: 'CURIOSIDADES · VILAREJOS',
     notes: [
+      { b: 'Bourton-on-the-Water', q: 'Bourton-on-the-Water', x: ' é chamada de “Veneza dos Cotswolds” pelas cinco pontes baixas de pedra do século XVIII.' },
       { b: 'Arlington Row', x: ' em Bibury era um galpão de lã do século XIV, convertido em casas de tecelões nos anos 1600.' },
-      { b: 'Castle Combe', q: 'Castle Combe Wiltshire', x: ' vira set de cinema com frequência justamente porque não há nada moderno na rua.' },
-      { b: 'A Broadway Tower', x: ' é um “folly”: uma torre construída em 1798 só para enfeitar a paisagem de uma condessa.' }
+      { b: 'Castle Combe', q: 'Castle Combe Wiltshire', x: ' vira set de cinema com frequência justamente porque não há nada moderno na rua.' }
     ],
     photo: 'a Arlington Row de Bibury vista da pontinha do outro lado do riacho.',
-    must: 'Castle Combe — a rua sem um único poste ou antena à vista. Se cansar, cortar Stow.' },
+    must: 'Castle Combe no fim da tarde, já com a rua vazia — e o hotel a 15 min.' },
 
-  { n: '09', date: 'ter 29 set', tone: 'blush', icon: 'Feather', place: 'COTSWOLDS · LONDRES',
-    title: 'Shakespeare\ne spa', meta: 'ÚLTIMO DIA INTEIRO', bg: './bg-09.webp',
+  { n: '09', date: 'ter 29 set', tone: 'blush', icon: 'House', place: 'LUCKNAM PARK',
+    title: 'Só curtir\no hotel', meta: 'ÚLTIMO DIA INTEIRO · SEM AGENDA', bg: './bg-09.webp',
     rows: [
-      { t: '09:30', b: 'Stratford-upon-Avon', q: 'Shakespeare\'s Birthplace Stratford-upon-Avon', x: ' · casa de Shakespeare e o rio Avon' },
-      { t: '13:00', b: 'Almoço', x: ' · algo simples à beira do rio' },
-      { t: '15:30', b: 'Spa no hotel', q: 'Lucknam Park Hotel & Spa', x: ' · Lucknam Park / manor house · massagem e sauna' },
-      { t: '19:30', b: 'Último jantar', x: ' no campo · brindar a viagem' }
+      { t: '09:30', b: 'Café da manhã', x: ' · longo e sem despertador' },
+      { t: '11:00', b: 'Spa', q: 'Lucknam Park Hotel & Spa', x: ' · piscina, sauna e massagem em casal' },
+      { t: '13:30', b: 'Almoço leve', x: ' no hotel' },
+      { t: '15:30', b: 'Jardins e alameda', x: ' · caminhada curta, livro e chá' },
+      { t: '19:30', b: 'Último jantar', x: ' · brindar a viagem' }
     ],
-    boxLabel: 'MALAS', boxText: 'Arrumar as malas hoje: amanhã é dia de transfer, e comprinhas do Borough e da Penhaligon\u2019s ocupam mais espaço do que parecem.',
+    boxLabel: 'MALAS', boxText: 'Arrumar as malas hoje: amanhã é dia de estrada e de devolver o carro, e as comprinhas ocupam mais espaço do que parecem.',
     extra: [
       { label: 'MAIS CURIOSIDADES', items: [
-        { b: 'Shakespeare ', x: 'nasceu e morreu em 23 de abril — e deixou em testamento a “segunda melhor cama” para a esposa.' },
-        { b: 'O Royal Shakespeare Theatre ', x: 'encena peças dele na cidade desde 1879; dá para ver a bilheteria do dia sem plano.' },
-        { b: 'A palavra spa ', x: 'vem da cidade belga de Spa, mas foram os banhos romanos de Bath, a 40 min daqui, que criaram o hábito na Inglaterra.' }
+        { b: 'A palavra spa ', x: 'vem da cidade belga de Spa, mas foram os banhos romanos de Bath, a uns 20 min daqui, que criaram o hábito na Inglaterra.' },
+        { b: 'O afternoon tea ', x: 'foi invenção da duquesa de Bedford, nos anos 1840, para segurar a fome entre o almoço e o jantar tardio.' },
+        { b: 'Wiltshire ', x: 'é o condado de Stonehenge e de Avebury, os dois círculos de pedra mais famosos da Inglaterra.' }
       ] },
-      { label: 'GUIA DO ÚLTIMO DIA', items: [
-        { b: 'Stratford: ', x: 'o combo de três casas vale mais que a entrada só da Birthplace; tudo a pé no centro.' },
-        { b: 'Spa: ', x: 'chegar 30 min antes do tratamento para usar sauna e piscina — está incluso.' },
+      { label: 'GUIA DO DIA', items: [
+        { b: 'Spa: ', x: 'chegar 30 min antes do tratamento para usar sauna e piscina.' },
+        { b: 'Jantar: ', x: 'pedir a mesa junto à janela na reserva. É a última noite da viagem.' },
         { b: 'Compras: ', x: 'guardar as notas fiscais das lojas com VAT refund num envelope só.' },
-        { b: 'Jantar: ', x: 'pedir a mesa junto à janela na reserva. É a última noite no campo.' }
+        { b: 'Se bater vontade de sair: ', x: 'Castle Combe fica a 15 min e Bath a uns 20. Mas hoje a ideia é não ter ideia.' }
       ] }
     ],
-    backLabel: 'CURIOSIDADES · STRATFORD',
+    backLabel: 'CURIOSIDADES · LUCKNAM PARK',
     notes: [
-      { b: 'Shakespeare', x: ' nasceu e morreu em Stratford — e está enterrado na Holy Trinity Church, a 10 min do centro.' },
-      { b: 'A casa da Henley Street', x: ' é a original da família; a peça mais visitada da cidade é a janela com assinaturas de visitantes do século XIX.' },
-      { b: 'Broadway e Stratford', x: ' ficam a ~40 min uma da outra — dá para juntar as duas no mesmo dia se sobrar ânimo.' }
+      { b: 'Lucknam Park', x: ' é uma casa de campo palladiana do início do século XVIII, cercada de parque e pasto.' },
+      { b: 'A alameda de árvores', x: ' da entrada tem cerca de uma milha — a melhor caminhada do dia não exige sair da propriedade.' },
+      { b: 'Casas de campo inglesas', x: ' como esta eram o centro de propriedades agrícolas inteiras; muitas viraram hotel no século XX para sobreviver.' }
     ],
-    photo: 'os dois no banco à beira do Avon, com os barquinhos passando atrás.',
+    photo: 'os dois nas espreguiçadeiras do jardim, com a casa de pedra atrás.',
     must: 'a massagem em casal no spa. Reservar com antecedência — o fim de tarde esgota primeiro.' },
 
   { n: '10', date: 'qua 30 set', tone: 'sky', icon: 'Plane', place: 'VOLTA PARA CASA',
     title: 'Volta\nLHR → GRU', meta: 'LA8085 · CÓD. LPPVIW', bg: './bg-10.webp',
     rows: [
       { t: '10:00', b: 'Café da manhã longo', x: ' e check-out sem correria' },
-      { t: '14:00', b: 'Transfer', x: ' · campo → Heathrow (~2h30 de estrada)' },
+      { t: '14:00', b: 'Estrada', x: ' · Lucknam Park → Heathrow pela M4 (~1h45)' },
+      { t: '16:30', b: 'Devolver o carro', x: ' · tanque cheio e fotos na entrega' },
       { t: '18:20', b: 'Chegar no aeroporto', q: 'Heathrow Airport Terminal 3', x: ' · VAT refund, se houver compras, antes do check-in' },
-      { t: '21:20', b: 'Decolagem LHR', x: ' · LA8085' },
-      { t: '04:45', b: 'Chegada a GRU', x: ' (+1 dia) · qui 01 out' }
+      { t: '21:20', b: 'Decolagem LHR', x: ' · LA8085 · pousa em GRU às 04:45 (+1)' }
     ],
-    boxLabel: 'ANTES DE SAIR', boxText: 'Conferir gavetas e cofre do hotel · deixar troco em libras acessível para o caminho',
+    boxLabel: 'ANTES DE SAIR', boxText: 'Conferir gavetas e cofre do hotel · abastecer antes de chegar a Heathrow · deixar troco em libras acessível',
     extra: [
       { label: 'GUIA DA VOLTA', items: [
-        { b: 'Estrada: ', x: 'Cotswolds → Heathrow leva 2h30 sem trânsito e mais de 3h na M4 no fim do dia. Sair às 14h.' },
+        { b: 'Estrada: ', x: 'Lucknam Park → Heathrow leva ~1h45 pela M4, e mais de 2h30 com trânsito no fim do dia. Sair às 14h.' },
+        { b: 'Carro: ', x: 'as locadoras de Heathrow ficam fora dos terminais; o shuttle até o terminal leva uns 15–20 min.' },
         { b: 'Check-in: ', x: 'LATAM costuma abrir 3h antes; bagagem despachada fecha 1h antes da partida.' },
-        { b: 'VAT refund: ', x: 'fazer antes de despachar as malas — o guichê pode pedir para ver as compras.' },
-        { b: 'Sobrou libra? ', x: 'gastar no duty free; casa de câmbio de aeroporto devolve muito pouco.' }
+        { b: 'VAT refund: ', x: 'fazer antes de despachar as malas — o guichê pode pedir para ver as compras.' }
       ] },
       { label: 'PARA A PRÓXIMA', items: [
         { b: 'Ficou de fora: ', x: 'Bath, Oxford, Windsor e os penhascos de Dover — todos a menos de 2h de Londres.' },
@@ -510,8 +519,8 @@ const DAYS = [
     ],
     backLabel: 'PARA A VOLTA',
     notes: [
-      { b: 'O trajeto Cotswolds → Heathrow', x: ' pode passar de 3h com trânsito na M4; sair com folga de verdade.' },
-      { b: 'Compras acima de £', x: ' feitas em loja participante podem ter devolução de imposto — guardar as notas fiscais juntas.' },
+      { b: 'O trajeto até Heathrow', x: ' pode passar de 2h30 com trânsito na M4; sair com folga de verdade.' },
+      { b: 'Posto perto do aeroporto', x: ' é caro e costuma ter fila — abastecer uns 20 km antes resolve.' },
       { b: 'Voando para oeste→leste de volta', x: ' o jet lag é menor: chegar de manhã e aguentar até a noite resolve.' }
     ],
     photo: 'os dois no jardim do hotel, malas ao lado, antes de entrar no carro.',
@@ -647,7 +656,7 @@ class Component extends DCLogic {
         photo: d.photo || '', must: d.must || '',
         icPlane: d.icon === 'Plane', icTree: d.icon === 'Tree', icTower: d.icon === 'Tower',
         icTeapot: d.icon === 'Teapot', icHouses: d.icon === 'Houses', icTrain: d.icon === 'Train',
-        icPlate: d.icon === 'Plate', icHouse: d.icon === 'House', icFeather: d.icon === 'Feather',
+        icPlate: d.icon === 'Plate', icHouse: d.icon === 'House', icFeather: d.icon === 'Feather', icCar: d.icon === 'Car',
         iconWrap: 'display:flex;align-items:center;justify-content:center;width:15px;height:15px;flex:0 0 auto;line-height:0;color:' + ICOL[d.n] + ';',
         wrap,
         inner: 'position:absolute;inset:0;transform-style:preserve-3d;transition:transform .62s cubic-bezier(.3,.8,.25,1);transform:rotateY(' +
