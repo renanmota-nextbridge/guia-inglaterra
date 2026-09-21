@@ -28,12 +28,14 @@
 <![CDATA[<helmet>
 <style>
   html, body { margin: 0; padding: 0; background: #f3ece2; -webkit-tap-highlight-color: transparent; }
+  html, body, #dc-root { height: 100%; overflow: hidden; overscroll-behavior: none; }
+  #dc-root > div { height: 100%; }
   * { box-sizing: border-box; }
   a { color: #7a6a58; }
   a:hover { color: #4a4038; }
 </style>
 </helmet>
-<div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:18px 14px 24px;background:radial-gradient(120% 80% at 50% 0%, #f8f2e8 0%, #eee5d8 60%, #e7dccd 100%);font-family:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,serif;color:#463d36;overflow:hidden">
+<div style="height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:18px 14px 24px;background:radial-gradient(120% 80% at 50% 0%, #f8f2e8 0%, #eee5d8 60%, #e7dccd 100%);font-family:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,serif;color:#463d36;overflow:hidden">
 
   <div style="display:flex;flex-direction:column;align-items:center;gap:3px">
     <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:#7e7160">Mayara &amp; Renan · 21–30 set 2026</div>
