@@ -27,7 +27,7 @@
 <x-dc>
 <![CDATA[<helmet>
 <style>
-  html, body { margin: 0; padding: 0; background: #f3ece2; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; background: #f3ece2; -webkit-tap-highlight-color: transparent; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   html, body, #dc-root { height: 100%; overflow: hidden; overscroll-behavior: none; }
   #dc-root > div { height: 100%; }
   button { touch-action: manipulation; }
@@ -272,14 +272,14 @@ const DAYS = [
   { n: '03', date: 'qua 23 set', tone: 'blush', icon: 'Tower', place: 'SOUTH BANK',
     title: 'South Bank\ne os clássicos', meta: 'ÔNIBUS HOP-ON HOP-OFF', bg: './bg-03.webp',
     rows: [
-      { alert: 'INGRESSO', t: '09:30', b: 'Ônibus turístico', x: ' · pegar a linha perto de Kensington e ver a cidade de cima' },
-      { t: '11:00', b: 'Buckingham Palace', q: 'Buckingham Palace London', x: ' · troca da guarda (conferir o dia: costuma ser 11h)' },
-      { t: '12:30', b: 'Big Ben', q: 'Westminster Bridge London', x: ' · Parlamento e a ponte para a margem sul (a abadia fica para amanhã)' },
-      { alert: 'INGRESSO', t: '14:30', b: 'London Eye', q: 'London Eye', x: ' · almoço leve no South Bank e a roda no fim da tarde' },
+      { alert: 'INGRESSO', t: '09:30', b: 'Ônibus turístico', x: ' · ver a cidade de cima' },
+      { t: '11:00', b: 'Buckingham Palace', q: 'Buckingham Palace London', x: ' · troca da guarda às 11h' },
+      { t: '12:30', b: 'Big Ben', q: 'Westminster Bridge London', x: ' · e a ponte para a margem sul' },
+      { alert: 'INGRESSO', t: '14:30', b: 'London Eye', q: 'London Eye', x: ' · almoço no South Bank e a roda' },
       { t: '17:30', b: 'Tower Bridge', q: 'Tower Bridge London', x: ' · pôr do sol no rio' },
-      { alert: 'RESERVAR', t: '19:30', b: 'Emilia\u2019s Pasta', q: 'Emilia\'s Crafted Pasta St Katharine Docks', x: ' · jantar em St Katharine Docks, ao lado da ponte' }
+      { alert: 'RESERVAR', t: '19:30', b: 'Emilia\u2019s Pasta', q: 'Emilia\'s Crafted Pasta St Katharine Docks', x: ' · St Katharine Docks, ao lado da ponte' }
     ],
-    boxLabel: 'PÉS', boxText: 'Dia mais longo de caminhada da viagem — tênis confortável e uma pausa de café sem culpa no meio.',
+    boxLabel: 'PÉS', boxText: 'Dia de muita caminhada — tênis confortável.',
     extra: [
       { label: 'MAIS CURIOSIDADES', items: [
         { b: 'O London Eye ', x: 'foi construído como atração temporária para o milênio, com 5 anos de permissão. Nunca saiu.' },
@@ -305,14 +305,14 @@ const DAYS = [
   { n: '04', date: 'qui 24 set', tone: 'butter', icon: 'Teapot', place: 'WESTMINSTER · BOROUGH',
     title: 'Abadia, mercado\ne chá da tarde', meta: 'COMER BEM O DIA INTEIRO', bg: './bg-04.webp', mirror: true,
     rows: [
-      { alert: 'INGRESSO', t: '09:30', b: 'Abadia de Westminster', q: 'Westminster Abbey London', x: ' · na abertura, com calma (~1h30)' },
-      { t: '11:30', b: 'Borough Market', q: 'Borough Market London', x: ' · almoço: sanduíche de porco trufado e morangos com chocolate' },
-      { t: '13:30', b: 'Penhaligon\u2019s', q: 'Penhaligon\'s Covent Garden London', x: ' · escolher um perfume com calma na loja' },
+      { alert: 'INGRESSO', t: '09:30', b: 'Abadia de Westminster', q: 'Westminster Abbey London', x: ' · na abertura (~1h30)' },
+      { t: '11:30', b: 'Borough Market', q: 'Borough Market London', x: ' · almoço no mercado' },
+      { t: '13:30', b: 'Penhaligon\u2019s', q: 'Penhaligon\'s Covent Garden London', x: ' · escolher um perfume' },
       { alert: 'RESERVAR', t: '15:30', b: 'Chá da tarde clássico', x: ' · leva ~2h' },
-      { t: '18:30', b: 'Piccadilly Circus', q: 'Piccadilly Circus London', x: ' e Chinatown · luzes e um passeio sem pressa' },
+      { t: '18:30', b: 'Piccadilly Circus', q: 'Piccadilly Circus London', x: ' e Chinatown · luzes e passeio' },
       { alert: 'RESERVAR', t: '20:30', b: 'The Ivy', q: 'The Ivy West Street London', x: ' · jantar em Covent Garden' }
     ],
-    boxLabel: 'RESERVAS', boxText: 'Chá da tarde e The Ivy precisam de reserva — fazer as duas com antecedência.',
+    boxLabel: 'RESERVAS', boxText: 'Chá da tarde e The Ivy: reservar com antecedência.',
     extra: [
       { label: 'MAIS CURIOSIDADES', items: [
         { b: 'O Borough ', x: 'quase fechou nos anos 1990: foi salvo virando mercado gourmet, quando os atacadistas foram para Nine Elms.' },
@@ -435,13 +435,13 @@ const DAYS = [
   { n: '08', date: 'seg 28 set', tone: 'sage', icon: 'Houses', place: 'COTSWOLDS → WILTSHIRE',
     title: 'Vilarejos a\ncaminho de Lucknam', meta: 'TROCA DE HOTEL · DE CARRO', bg: './bg-08.webp',
     rows: [
-      { t: '10:00', b: 'Bourton-on-the-Water', q: 'Bourton-on-the-Water', x: ' · check-out e as pontinhas do rio, a 5 min' },
+      { t: '10:00', b: 'Bourton-on-the-Water', q: 'Bourton-on-the-Water', x: ' · check-out e as pontinhas do rio' },
       { t: '12:00', b: 'Burford', q: 'Burford Oxfordshire', x: ' · almoço na rua principal em descida' },
-      { t: '14:00', b: 'Bibury', q: 'Arlington Row Bibury', x: ' · Arlington Row, a fileira de casas mais fotografada' },
-      { t: '16:00', b: 'Castle Combe', q: 'Castle Combe Wiltshire', x: ' · vilarejo sem postes nem antenas à vista' },
-      { t: '17:30', b: 'Lucknam Park', q: 'Lucknam Park Hotel & Spa', x: ' · check-in, a 15 min de Castle Combe' }
+      { t: '14:00', b: 'Bibury', q: 'Arlington Row Bibury', x: ' · Arlington Row' },
+      { t: '16:00', b: 'Castle Combe', q: 'Castle Combe Wiltshire', x: ' · o vilarejo sem postes' },
+      { t: '17:30', b: 'Lucknam Park', q: 'Lucknam Park Hotel & Spa', x: ' · check-in' }
     ],
-    boxLabel: 'LOGÍSTICA', boxText: 'Malas no carro desde cedo. O caminho só desce para o sul: Bourton → Burford → Bibury → Castle Combe → hotel.',
+    boxLabel: 'LOGÍSTICA', boxText: 'Malas no carro desde cedo — o caminho só desce para o sul até o hotel.',
     extra: [
       { label: 'MAIS CURIOSIDADES', items: [
         { b: 'Arlington Row ', x: 'está no verso do passaporte britânico — é oficialmente a imagem da Inglaterra rural.' },
