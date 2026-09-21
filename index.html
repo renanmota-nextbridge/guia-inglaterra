@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Guia Inglaterra</title>
+<meta name="theme-color" content="#f3ece2">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./icons/icon-192.png">
+<link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Inglaterra">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<script src="./vendor/react.production.min.js"></script>
+<script src="./vendor/react-dom.production.min.js"></script>
+<script src="./support.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('./sw.js').catch(function () {});
+    });
+  }
+</script>
+</head>
+<body>
+<x-dc>
+<![CDATA[<helmet>
+<style>
+  html, body { margin: 0; padding: 0; background: #f3ece2; -webkit-tap-highlight-color: transparent; }
+  * { box-sizing: border-box; }
+  a { color: #7a6a58; }
+  a:hover { color: #4a4038; }
+</style>
+</helmet>
+<div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:18px 14px 24px;background:radial-gradient(120% 80% at 50% 0%, #f8f2e8 0%, #eee5d8 60%, #e7dccd 100%);font-family:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,serif;color:#463d36;overflow:hidden">
+
+  <div style="display:flex;flex-direction:column;align-items:center;gap:3px">
+    <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:#7e7160">Mayara &amp; Renan · 21–30 set 2026</div>
+    <div style="font-size:19px;letter-spacing:0.02em;color:#5c5047">Inglaterra • Guia de Viagem</div>
+  </div>
+
+  <div style="{{ stageBox }}"><div style="{{ stage }}" onTouchStart="{{ onTouchStart }}" onTouchMove="{{ onTouchMove }}" onTouchEnd="{{ onTouchEnd }}" onMouseDown="{{ onMouseDown }}">
+    <div style="{{ coverWrap }}">
+      <div style="{{ coverInner }}">
+        <div style="position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:26px;background:#f4f7fb;box-shadow:0 18px 40px -18px rgba(70,55,40,.45),0 0 0 1px rgba(120,100,80,.10);overflow:hidden;display:flex;flex-direction:column">
+          <img src="./capa.webp" alt="Mayara &amp; Renan na Inglaterra" style="width:100%;height:100%;object-fit:cover;display:block">
+          <button onClick="{{ coverFlip }}" style="position:absolute;bottom:16px;right:16px;border:none;cursor:pointer;background:rgba(255,253,248,.92);color:#33406b;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;letter-spacing:0.14em;padding:9px 14px;border-radius:999px;box-shadow:0 4px 12px -6px rgba(40,50,80,.5)">VIRAR ↻</button>
+        </div>
+        <div style="position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;transform:rotateY(180deg);border-radius:26px;background:#eef2f9;box-shadow:0 18px 40px -18px rgba(70,55,40,.45),0 0 0 1px rgba(120,100,80,.10);overflow:hidden;display:flex;flex-direction:column">
+          <div style="flex:1;overflow:hidden;padding:26px 24px 12px;display:flex;flex-direction:column;gap:14px">
+            <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;letter-spacing:0.2em;color:#5a6280">A VIAGEM</div>
+            <div style="font-size:14.5px;line-height:1.5;text-wrap:pretty"><b>10 dias</b> · 21 a 30 de setembro · Londres e Cotswolds</div>
+            <div style="font-size:14.5px;line-height:1.5;text-wrap:pretty"><b>Londres:</b> The Kensington · 4 noites</div>
+            <div style="font-size:14.5px;line-height:1.5;text-wrap:pretty"><b>Cotswolds:</b> The Slaughters Manor House · Lucknam Park</div>
+            <div style="font-size:14.5px;line-height:1.5;text-wrap:pretty"><b>Voos:</b> LA8084 ida · LA8085 volta · cód. LPPVIW</div>
+            <div style="padding:10px 13px;border-radius:13px;background:#fffdf8;font-size:12.5px;line-height:1.45;text-wrap:pretty">Cada card é um dia. Arraste para o lado para avançar e vire a carta para ver curiosidades do lugar.</div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:flex-end;padding:11px 18px 13px;border-top:1px solid rgba(120,100,80,.12)">
+            <button onClick="{{ coverFlip }}" style="border:none;cursor:pointer;background:#fffdf8;color:#33406b;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;letter-spacing:0.14em;padding:9px 14px;border-radius:999px">↺ VOLTAR</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <sc-for list="{{ days }}" as="day" hint-placeholder-count="3">
+      <div style="{{ day.wrap }}">
+        <div style="{{ day.inner }}">
+
+          <div style="{{ day.frontFace }}">
+            <div style="{{ day.head }}">
+              <sc-if value="{{ day.mirrorImg }}" hint-placeholder-val="{{ false }}">
+                <div style="{{ day.mirrorImg }}"></div>
+                <div style="{{ day.mirrorVeil }}"></div>
+              </sc-if>
+              <div style="{{ day.headInner }}">
+              <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#5c5245">{{ day.kicker }}</div>
+              <div style="font-size:24px;line-height:1.1;margin-top:5px;color:#3a332c;max-width:250px;text-wrap:pretty">{{ day.title1 }}<br>{{ day.title2 }}</div>
+              <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;letter-spacing:0.14em;color:#615748;margin-top:8px">{{ day.meta }}</div>
+              </div>
+            </div>
+
+            <div style="flex:1;overflow:hidden;padding:15px 22px 12px;display:flex;flex-direction:column;justify-content:center;gap:10px">
+              <sc-for list="{{ day.rows }}" as="r" hint-placeholder-count="4">
+                <div style="display:flex;gap:12px;align-items:baseline">
+                  <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;color:#6f6355;min-width:42px;flex:0 0 auto">{{ r.t }}</div>
+                  <div style="font-size:14.5px;line-height:1.45;text-wrap:pretty"><sc-if value="{{ r.url }}" hint-placeholder-val="{{ false }}"><a href="{{ r.url }}" target="_blank" rel="noopener" title="Abrir no Google Maps" style="display:inline-block;vertical-align:-2px;margin-right:5px;line-height:0;color:#8a7b67;text-decoration:none" style-hover="color:#463d36"><svg width="10" height="13" viewBox="0 0 10 13" fill="none" aria-hidden="true"><path d="M5 12.2C5 12.2 9 7.9 9 5A4 4 0 1 0 1 5c0 2.9 4 7.2 4 7.2Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"></path><circle cx="5" cy="4.9" r="1.35" fill="currentColor"></circle></svg></a></sc-if><b>{{ r.b }}</b>{{ r.x }}</div>
+                </div>
+              </sc-for>
+              <sc-if value="{{ day.boxText }}" hint-placeholder-val="{{ true }}">
+                <div style="padding:10px 13px;border-radius:13px;background:#f5efe4">
+                  <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;letter-spacing:0.18em;color:#6f6355;margin-bottom:6px">{{ day.boxLabel }}</div>
+                  <div style="font-size:12.5px;line-height:1.45;text-wrap:pretty">{{ day.boxText }}</div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ day.foot }}" hint-placeholder-val="{{ false }}">
+                <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;line-height:1.7;color:#6f6355">{{ day.foot }}</div>
+              </sc-if>
+            </div>
+
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:11px 18px 13px;border-top:1px solid rgba(120,100,80,.12)">
+              <div style="display:flex;align-items:center;gap:7px">
+                <div style="{{ day.iconWrap }}">
+                  <sc-if value="{{ day.icPlane }}" hint-placeholder-val="{{ false }}">
+                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.2 3.2 3.6 9.4l4.6 1.8 1.8 4.6z"/><path d="M17.2 3.2 8.2 11.2"/></svg>
+                  </sc-if>
+                  <sc-if value="{{ day.icTree }}" hint-placeholder-val="{{ false }}">
+                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.8 11.2a3.2 3.2 0 0 1 .7-5.3 3.4 3.4 0 0 1 4.5-2.6 3.4 3.4 0 0 1 4.5 2.6 3.2 3.2 0 0 1 .7 5.3z"/><path d="M9.2 11.2v5.6M10.8 11.2v5.6"/><path d="M7.2 16.8h5.6"/></svg>
+                  </sc-if>
+                  <sc-if value="{{ day.icTower }}" hint-placeholder-val="{{ false }}">
+                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2.2 13 6H7z"/><path d="M6.6 6h6.8v9.8H6.6z"/><circle cx="10" cy="9.4" r="2.2"/><path d="M5.4 15.8h9.2v1.6H5.4z"/></svg>
+                  </sc-if>
+                  <sc-if value="{{ day.icTeapot }}" hint-placeholder-val="{{ false }}">
+                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.4 9.4h8.2v2.4a4.1 4.1 0 0 1-8.2 0z"/><path d="M12.6 10.4h1.6a1.9 1.9 0 0 1 0 3.8"/><path d="M6.2 9.4a2.3 2.3 0 0 1 4.6 0"/><path d="M8.5 7.1V5.9"/><path d="M5.2 16.6h6.6"/></svg>
+                  </sc-if>
+                  <sc-if value="{{ day.icHouses }}" hint-placeholder-val="{{ false }}">
+                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.4 9.6 5.6 6.6l3.2 3"/><path d="M3.5 9.6V15h4.2V9.6"/><path d="M11 8.6 14.2 5.6l3.2 3"/><path d="M12.1 8.6V15h4.2V8.6"/><path d="M2 15h16"/></svg>
+                  </sc-if>
+                  <sc-if value="{{ day.icTrain }}" hint-placeholder-val="{{ false }}">
+                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.4" y="3.4" width="11.2" height="9.6" rx="2.4"/><path d="M4.4 8.4h11.2"/><circle cx="7.2" cy="15.4" r="1.6"/><circle cx="12.8" cy="15.4" r="1.6"/></svg>
+                  </sc-if>
+                  <sc-if value="{{ day.icPlate }}" hint-placeholder-val="{{ false }}">
+                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 13.2a6.4 6.4 0 0 1 12.8 0z"/><path d="M2.4 13.2h15.2"/><path d="M10 6.8V5.2"/></svg>
+                  </sc-if>
+                  <sc-if value="{{ day.icHouse }}" hint-placeholder-val="{{ false }}">
+                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 9.2 10 3.2l7.4 6"/><path d="M4.6 10.6v6.2h10.8v-6.2"/><path d="M8.4 16.8v-4.2h3.2v4.2"/></svg>
+                  </sc-if>
+                  <sc-if value="{{ day.icFeather }}" hint-placeholder-val="{{ false }}">
+                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16.6 3.4C10.6 4 6 8.2 4.6 14.6c6.4-1.4 10.8-5.8 12-11.2z"/><path d="M4.6 14.6 2.8 17.2"/><path d="M13.8 5.2 8.6 9M15 8.4l-4.6 3.4"/></svg>
+                  </sc-if>
+                </div>
+                <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;letter-spacing:0.16em;color:#8a7b67">{{ day.place }}</div>
+              </div>
+              <button onClick="{{ day.flip }}" style="{{ day.btn }}">VIRAR ↻</button>
+            </div>
+          </div>
+
+          <div style="{{ day.backFace }}">
+            <div style="flex:1;overflow:hidden;padding:20px 24px 10px;display:flex;flex-direction:column;gap:10px;touch-action:pan-x" onTouchStart="{{ day.vStart }}" onTouchMove="{{ day.vMove }}" onTouchEnd="{{ day.vEnd }}" onWheel="{{ day.vWheel }}">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+                <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;letter-spacing:0.2em;color:#5f5548">{{ day.pageLabel }}</div>
+                <div style="display:flex;flex-direction:column;gap:4px;align-items:center;flex:0 0 auto">
+                  <sc-for list="{{ day.pageDots }}" as="pd" hint-placeholder-count="3">
+                    <div style="{{ pd.s }}"></div>
+                  </sc-for>
+                </div>
+              </div>
+              <div style="{{ day.pageSlide }}">
+                <sc-for list="{{ day.pageItems }}" as="n" hint-placeholder-count="3">
+                  <div style="font-size:14px;line-height:1.5;text-wrap:pretty"><b>{{ n.b }}</b>{{ n.x }}</div>
+                </sc-for>
+              </div>
+              <div style="margin-top:auto;display:flex;flex-direction:column;gap:8px">
+                <div style="display:flex;gap:9px;align-items:flex-start;padding:10px 12px;border-radius:13px;background:#fffdf8">
+                  <div style="position:relative;width:15px;height:13px;flex:0 0 auto;margin-top:2px">
+                    <div style="position:absolute;left:0;bottom:0;width:15px;height:11px;border-radius:3px;box-shadow:inset 0 0 0 1.5px #7c6f5e"></div>
+                    <div style="position:absolute;left:4px;top:0;width:6px;height:3px;border-radius:2px 2px 0 0;background:#7c6f5e"></div>
+                    <div style="position:absolute;left:4.5px;bottom:2.5px;width:6px;height:6px;border-radius:50%;box-shadow:inset 0 0 0 1.5px #7c6f5e"></div>
+                  </div>
+                  <div style="font-size:12.5px;line-height:1.45;text-wrap:pretty"><b>A foto do dia · </b>{{ day.photo }}</div>
+                </div>
+                <div style="display:flex;gap:9px;align-items:flex-start;padding:10px 12px;border-radius:13px;background:#fffdf8">
+                  <div style="position:relative;width:15px;height:13px;flex:0 0 auto;margin-top:2px">
+                    <div style="position:absolute;left:1px;top:0;width:13px;height:13px;background:#7c6f5e;clip-path:polygon(50% 0%,62% 35%,100% 37%,70% 60%,80% 100%,50% 76%,20% 100%,30% 60%,0% 37%,38% 35%)"></div>
+                  </div>
+                  <div style="font-size:12.5px;line-height:1.45;text-wrap:pretty"><b>Imperdível · </b>{{ day.must }}</div>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:flex-end;padding:11px 18px 13px;border-top:1px solid rgba(120,100,80,.12)">
+              <button onClick="{{ day.flip }}" style="border:none;cursor:pointer;background:#fffdf8;color:#4a4038;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;letter-spacing:0.14em;padding:9px 14px;border-radius:999px">↺ VOLTAR</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </sc-for>
+
+  </div></div>
+
+  <div style="display:flex;align-items:center;gap:16px">
+    <button onClick="{{ prev }}" style="border:none;background:#fffdf8;color:#8b7c69;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:15px;box-shadow:0 2px 8px -4px rgba(70,55,40,.4);flex:0 0 auto">‹</button>
+    <div style="display:flex;gap:6px;align-items:center">
+      <div onClick="{{ coverJump }}" style="{{ coverDot }}"></div>
+      <sc-for list="{{ days }}" as="day" hint-placeholder-count="10">
+        <div onClick="{{ day.jump }}" style="{{ day.dot }}"></div>
+      </sc-for>
+    </div>
+    <button onClick="{{ next }}" style="border:none;background:#fffdf8;color:#8b7c69;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:15px;box-shadow:0 2px 8px -4px rgba(70,55,40,.4);flex:0 0 auto">›</button>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:440,&quot;height&quot;:820}}">
+const PAL = {
+  sky:   { head: '#dfe3ef', back: '#edeff6', btn: '#dfe3ef', ink: '#3a4257', veil: 'rgba(233,238,248,.94)' },
+  sage:  { head: '#d9e4d5', back: '#eef3ea', btn: '#d9e4d5', ink: '#3c4a37', veil: 'rgba(228,238,224,.94)' },
+  blush: { head: '#f0dcd8', back: '#f9edea', btn: '#f0dcd8', ink: '#57403c', veil: 'rgba(248,229,225,.94)' },
+  butter:{ head: '#f0e5c9', back: '#f9f2e0', btn: '#f0e5c9', ink: '#544a31', veil: 'rgba(249,239,214,.94)' }
+};
+
+const ICOL = { '01':'#7B9FD4','02':'#6AA57C','03':'#4A7FB5','04':'#B08F52','05':'#C4738B','06':'#5C9A6B','07':'#B08A44','08':'#4F8C69','09':'#B67689','10':'#6B8CBA' };
+
+const DAYS = [
+  { n: '01', date: 'seg 21 set', tone: 'sky', icon: 'Plane', place: 'EM VOO',
+    title: 'O voo\nGRU → LHR', meta: 'LA8084 · CÓD. LPPVIW', bg: './bg-voo.webp',
+    rows: [
+      { t: '20:30', b: 'Sair de casa', x: ' · chegar em Guarulhos ~3h antes' },
+      { t: '23:50', b: 'Decolagem GRU', q: 'Aeroporto Internacional de Guarulhos', x: ' · LA8084 · ~11h30 de voo' },
+      { t: '15:05', b: 'Pouso em Heathrow', x: ' (+1 dia, horário local)', q: 'Heathrow Airport London' }
+    ],
+    boxLabel: 'NA MOCHILA', boxText: 'Passaportes · comprovante do The Kensington · meias de compressão · garrafinha vazia · carregador e adaptador tipo G',
+    foot: 'VOLTA · 30 set · LA8085 · 21:20 LHR → 04:45 GRU (+1)',
+    extra: [
+      { label: 'ANTES DE DESCER', items: [
+        { b: 'Imigração: ', x: 'brasileiros não precisam de visto para turismo até 6 meses, mas desde 2025 é exigida a autorização ETA — conferir se está aprovada antes de embarcar.' },
+        { b: 'Na fila: ', x: 'ter à mão o endereço do hotel e a data de saída do país. São as duas perguntas de sempre.' },
+        { b: 'Chip/eSIM: ', x: 'ativar antes de sair do avião; o wi-fi do aeroporto pede cadastro e é lento.' }
+      ] },
+      { label: 'DINHEIRO E TRANSPORTE', items: [
+        { b: 'Libra esterlina (£). ', x: 'Quase tudo se paga por aproximação — cartão de crédito internacional resolve 95% da viagem.' },
+        { b: 'No metrô e ônibus: ', x: 'encostar o mesmo cartão na entrada e na saída. O sistema calcula a tarifa mais barata do dia sozinho.' },
+        { b: 'Gorjeta: ', x: '10–12% em restaurante, e só se o service charge não vier na conta. Em pub não se dá.' }
+      ] }
+    ],
+    backLabel: 'PARA O VOO',
+    notes: [
+      { b: 'Londres está 4h à frente', x: ' de São Paulo em setembro. Ajustar o relógio ao embarcar já engana o corpo.' },
+      { b: 'Heathrow', x: ' é o aeroporto mais movimentado da Europa — o e-gate aceita passaporte brasileiro, mas o controle pode passar de 40 min.' },
+      { b: 'Setembro em Londres:', x: ' 12–20 °C, escurece ~19h e a chuva fina é imprevisível. Camadas + guarda-chuva pequeno.' }
+    ],
+    photo: 'a asa contra o nascer do sol, umas 2h antes de pousar — vale acordar para isso.',
+    must: 'ajustar o relógio ainda no embarque e dormir de verdade no avião. O resto da viagem agradece.' },
+
+  { n: '02', date: 'ter 22 set', tone: 'sage', icon: 'Tree', place: 'LONDRES',
+    title: 'Chegada a\nLondres', meta: 'RITMO MUITO CALMO', bg: './bg-02.webp',
+    rows: [
+      { t: '15:05', b: 'Pouso em Heathrow', x: ' · imigração e bagagem podem levar ~1h', q: 'Heathrow Airport London' },
+      { t: '17:00', b: 'The Kensington', q: 'The Kensington Hotel London', x: ' · check-in, banho longo e respiro' },
+      { t: '18:30', b: 'Kensington Gardens', q: 'Kensington Gardens London', x: ' · caminhada leve até o fim do dia' },
+      { t: '20:00', b: 'Fish and chips', x: ' num pub do bairro — jantar curto' }
+    ],
+    boxLabel: 'LEMBRAR', boxText: 'Dormir no horário de Londres já na primeira noite · comprar uma Oyster ou usar o cartão por aproximação no metrô',
+    extra: [
+      { label: 'MAIS CURIOSIDADES', items: [
+        { b: 'O Palácio de Kensington ', x: 'é habitado até hoje — William e Kate moram numa ala fechada ao público.' },
+        { b: 'O Albert Memorial, ', x: 'na borda do parque, foi erguido por Vitória para o marido: 54 metros de luto em ouro.' },
+        { b: 'A Serpentine, ', x: 'o lago do Hyde Park, foi cavada em 1730 por ordem da rainha Carolina — e tem gente que nada nela no inverno.' }
+      ] },
+      { label: 'GUIA DO BAIRRO', items: [
+        { b: 'The Kensington ', x: 'fica a 4 min de Gloucester Road (Circle, District, Piccadilly) — a Piccadilly vai direto a Heathrow.' },
+        { b: 'Vizinhança: ', x: 'V&A, Museu de História Natural e Science Museum ficam a 10 min a pé, e todos têm entrada gratuita.' },
+        { b: 'Jantar por ali: ', x: 'The Builders Arms e The Anglesea Arms são pubs de bairro, sem fila de turista.' },
+        { b: 'Mercado: ', x: 'um Waitrose na Gloucester Rd resolve água, fruta e chocolate para o quarto.' }
+      ] }
+    ],
+    backLabel: 'CURIOSIDADES · KENSINGTON',
+    notes: [
+      { b: 'Kensington Gardens', q: 'Kensington Gardens London', x: ' era o jardim privado do Palácio de Kensington — casa de infância da rainha Vitória e residência da princesa Diana por 15 anos.' },
+      { b: 'Hyde Park', x: ' tem o Speakers\u2019 Corner, onde desde 1872 qualquer pessoa pode subir num banquinho e discursar sobre o que quiser.' },
+      { b: 'Fish and chips', x: ' virou popular no século XIX com as ferrovias trazendo peixe fresco; come-se com sal e vinagre de malte.' }
+    ],
+    photo: 'vocês dois na alameda de árvores do Kensington Gardens, na luz dourada das 18h30.',
+    must: 'a primeira pint num pub de bairro. Pede-se e paga-se no balcão — não há garçom.' },
+
+  { n: '03', date: 'qua 23 set', tone: 'blush', icon: 'Tower', place: 'SOUTH BANK',
+    title: 'South Bank\ne os clássicos', meta: 'ÔNIBUS HOP-ON HOP-OFF', bg: './bg-03.webp',
+    rows: [
+      { t: '09:30', b: 'Ônibus turístico', x: ' · pegar a linha perto de Kensington e ver a cidade de cima' },
+      { t: '11:00', b: 'Buckingham Palace', q: 'Buckingham Palace London', x: ' · troca da guarda (conferir o dia: costuma ser 11h)' },
+      { t: '12:30', b: 'Westminster', q: 'Westminster Abbey London', x: ' · abadia, Big Ben e a ponte para a margem sul' },
+      { t: '14:30', b: 'London Eye', q: 'London Eye', x: ' · almoço leve no South Bank e a roda no fim da tarde' },
+      { t: '17:30', b: 'Tower Bridge', q: 'Tower Bridge London', x: ' · pôr do sol no rio e volta tranquila' }
+    ],
+    boxLabel: 'PÉS', boxText: 'Dia mais longo de caminhada da viagem — tênis confortável e uma pausa de café sem culpa no meio.',
+    extra: [
+      { label: 'MAIS CURIOSIDADES', items: [
+        { b: 'O London Eye ', x: 'foi construído como atração temporária para o milênio, com 5 anos de permissão. Nunca saiu.' },
+        { b: 'No Parlamento, ', x: 'ninguém pode morrer oficialmente — a tradição diz que renderia funeral de Estado. É lenda, mas todo guia conta.' },
+        { b: 'A Abadia de Westminster ', x: 'guarda mais de 3.300 sepultamentos, incluindo Newton, Darwin e Stephen Hawking.' }
+      ] },
+      { label: 'GUIA DO DIA', items: [
+        { b: 'Troca da guarda: ', x: 'às 11h, em dias alternados — confirmar no site da Household Division na véspera. Chuva cancela.' },
+        { b: 'Melhor vista de graça: ', x: 'o terraço do Tate Modern e a ponte do Millennium, ambos no South Bank.' },
+        { b: 'London Eye: ', x: 'comprar horário marcado online evita 40 min de fila.' },
+        { b: 'Pausa: ', x: 'o mercadinho de comida do Southbank Centre é melhor que qualquer restaurante turístico da orla.' }
+      ] }
+    ],
+    backLabel: 'CURIOSIDADES · SOUTH BANK',
+    notes: [
+      { b: 'Big Ben', x: ' é o nome do sino, não da torre — ela se chama Elizabeth Tower desde 2012.' },
+      { b: 'A Abadia de Westminster', x: ' recebe coroações desde 1066: são quase mil anos de reis coroados no mesmo ponto.' },
+      { b: 'A Tower Bridge', x: ' ainda abre cerca de 800 vezes por ano; o horário das aberturas é publicado com antecedência.' }
+    ],
+    photo: 'o Big Ben inteiro da ponte de Westminster, lado sul, no fim da tarde.',
+    must: 'a troca da guarda em Buckingham — chegar 40 min antes para pegar lugar na grade.' },
+
+  { n: '04', date: 'qui 24 set', tone: 'butter', icon: 'Teapot', place: 'BOROUGH · MAYFAIR',
+    title: 'Mercado e\nchá da tarde', meta: 'COMER BEM O DIA INTEIRO', bg: './bg-04.webp', mirror: true,
+    rows: [
+      { t: '10:00', b: 'Borough Market', q: 'Borough Market London', x: ' · sanduíche de porco trufado e morangos com chocolate' },
+      { t: '13:00', b: 'Penhaligon\u2019s', q: 'Penhaligon\'s Covent Garden London', x: ' · escolher um perfume com calma na loja' },
+      { t: '15:30', b: 'Chá da tarde clássico', x: ' · reservar com antecedência (leva ~2h)' },
+      { t: '18:30', b: 'Piccadilly Circus', q: 'Piccadilly Circus London', x: ' e Chinatown · luzes e um passeio sem pressa' },
+      { t: '20:30', b: 'Jantar', x: ' · Flat Iron, The Ivy ou Emilia\u2019s Pasta' }
+    ],
+    boxLabel: 'RESERVAS', boxText: 'Chá da tarde e The Ivy precisam de reserva. Flat Iron não aceita — chegar antes das 19h.',
+    extra: [
+      { label: 'MAIS CURIOSIDADES', items: [
+        { b: 'O Borough ', x: 'quase fechou nos anos 1990: foi salvo virando mercado gourmet, quando os atacadistas foram para Nine Elms.' },
+        { b: 'Piccadilly Circus ', x: 'tem telas luminosas desde 1908 — e elas só se apagaram durante as duas guerras.' },
+        { b: 'A Chinatown atual ', x: 'nasceu nos anos 1950 em Soho; a original ficava em Limehouse, junto às docas.' }
+      ] },
+      { label: 'GUIA DAS COMPRAS', items: [
+        { b: 'Penhaligon\u2019s: ', x: 'a loja de Covent Garden faz consulta de perfume guiada, ~30 min, melhor de manhã.' },
+        { b: 'No Borough: ', x: 'ir antes das 11h. O sanduíche de porco é do Roast Hog, e os morangos com chocolate ficam na banca da entrada da Stoney St.' },
+        { b: 'Chá da tarde: ', x: 'reservar com semanas de antecedência. Homem costuma precisar de calça e sapato fechado.' },
+        { b: 'Flat Iron: ', x: 'um único corte por £, sem reserva. Fila menor no de Covent Garden às 18h.' }
+      ] }
+    ],
+    backLabel: 'CURIOSIDADES · MERCADO E CHÁ',
+    notes: [
+      { b: 'O Borough Market', x: ' tem registros de comércio de comida no mesmo pedaço de Southwark desde o século XII.' },
+      { b: 'O afternoon tea', x: ' foi invenção da duquesa de Bedford, nos anos 1840, para segurar a fome entre o almoço e o jantar tardio.' },
+      { b: 'A Penhaligon\u2019s', x: ' nasceu em 1870 de um barbeiro da corte; várias fragrâncias da casa são as mesmas do catálogo vitoriano.' }
+    ],
+    photo: 'a torre de doces do chá da tarde com as duas taças na frente.',
+    must: 'o sanduíche de porco trufado do Borough Market. Come-se de baixo para cima no chá: sanduíche, scone, doce.' },
+
+  { n: '05', date: 'sex 25 set', tone: 'blush', icon: 'Houses', place: 'NOTTING HILL · CAMDEN',
+    title: 'Notting Hill\ne Camden', meta: 'BAIRROS E FEIRINHAS', bg: './bg-05.webp',
+    rows: [
+      { t: '10:00', b: 'Portobello Road', q: 'Portobello Road Market London', x: ' · feirinha de antiquários e as casas coloridas' },
+      { t: '13:00', b: 'Almoço', x: ' · Gold Notting Hill (reservar)', q: 'Gold Notting Hill London' },
+      { t: '15:30', b: 'Camden Town', q: 'Camden Market London', x: ' · Camden Lock, barraquinhas e o canal' },
+      { t: '18:00', b: 'Pub bem inglês', x: ' · uma pint e voltar sem pressa' }
+    ],
+    boxLabel: 'ATENÇÃO', boxText: 'A feira grande de Portobello é no sábado; na sexta é menor e mais tranquila — o que, com o roteiro assim, até ajuda.',
+    extra: [
+      { label: 'MAIS CURIOSIDADES', items: [
+        { b: 'O Carnaval de Notting Hill, ', x: 'em agosto, é a maior festa de rua da Europa — herança da comunidade caribenha do bairro.' },
+        { b: 'O nome Camden ', x: 'vem do 1º Earl Camden, que loteou os campos em 1791; o mercado só apareceu em 1974, com 16 barracas.' },
+        { b: 'A livraria do filme ', x: 'Notting Hill existiu de verdade na Blenheim Crescent — hoje é outra loja, mas a fachada azul ficou.' }
+      ] },
+      { label: 'GUIA DO DIA', items: [
+        { b: 'Portobello: ', x: 'antiguidades ficam no trecho sul (Chepstow Villas); comida e vintage, subindo para o norte.' },
+        { b: 'Camden: ', x: 'o melhor pedaço é o Stables Market, nos antigos estábulos dos cavalos do canal.' },
+        { b: 'Barco: ', x: 'dá para ir de Camden a Little Venice pelo canal em 45 min — passeio bonito e sentado.' },
+        { b: 'Pub inglês de verdade: ', x: 'The Churchill Arms, em Notting Hill, coberto de flores e com cozinha tailandesa nos fundos.' }
+      ] }
+    ],
+    backLabel: 'CURIOSIDADES · BAIRROS',
+    notes: [
+      { b: 'Portobello Road', q: 'Portobello Road Market London', x: ' é o maior mercado de antiguidades do mundo em número de bancas — mais de mil em dia cheio.' },
+      { b: 'As casas pastel', x: ' de Notting Hill eram cinza: os moradores começaram a pintá-las nos anos 1960 para valorizar a rua.' },
+      { b: 'Camden', x: ' cresceu em volta do canal Regent\u2019s: os armazéns dos barcos de carga são hoje as lojas do mercado.' }
+    ],
+    photo: 'vocês na frente de uma porta pastel de Notting Hill — as melhores estão na Lancaster Rd.',
+    must: 'garimpar uma bobagem antiga na Portobello. Levar dinheiro em espécie para as bancas pequenas.' },
+
+  { n: '06', date: 'sáb 26 set', tone: 'sage', icon: 'Train', place: 'COTSWOLDS',
+    title: 'Trem para\nos Cotswolds', meta: 'PADDINGTON → CAMPO', bg: './bg-06.webp',
+    rows: [
+      { t: '10:00', b: 'Check-out', x: ' do The Kensington e táxi até Paddington' },
+      { t: '11:30', b: 'Trem', q: 'Paddington Station London', x: ' · Paddington → Moreton-in-Marsh (~1h30)' },
+      { t: '14:00', b: 'The Slaughters Manor House', q: 'The Slaughters Manor House', x: ' · check-in e chá no jardim' },
+      { t: '16:30', b: 'Lower Slaughter', q: 'Lower Slaughter Gloucestershire', x: ' · volta a pé pelo riacho, 30 min' },
+      { t: '19:30', b: 'Jantar no hotel', x: ' · reserva confirmada' }
+    ],
+    boxLabel: 'RESERVA', boxText: '26/09 · 19:30 · restaurante do The Slaughters Manor House',
+    extra: [
+      { label: 'MAIS CURIOSIDADES', items: [
+        { b: 'Paddington ', x: 'foi projetada por Brunel em 1854; o urso ganhou o nome da estação, não o contrário.' },
+        { b: 'Cotswold ', x: 'quer dizer algo como “colinas dos currais de ovelha” — e ainda há mais ovelha que gente na região.' },
+        { b: 'A Área de Beleza Natural ', x: 'dos Cotswolds cobre 2.000 km² e cinco condados. Nada pode ser construído fora do estilo local.' }
+      ] },
+      { label: 'GUIA DO CAMPO', items: [
+        { b: 'Trem: ', x: 'Paddington → Moreton-in-Marsh é direto, ~1h30. Comprar antecipado e sentar à esquerda.' },
+        { b: 'Do trem ao hotel: ', x: 'pedir o transfer do manor na reserva — táxi na estação não é garantido.' },
+        { b: 'Ritmo: ', x: 'quase tudo fecha entre 17h e 18h nos vilarejos, e a cozinha do pub para às 21h.' },
+        { b: 'Calçado: ', x: 'as trilhas entre vilarejos são de terra e barro, mesmo sem chuva no dia.' }
+      ] }
+    ],
+    backLabel: 'CURIOSIDADES · COTSWOLDS',
+    notes: [
+      { b: 'Slaughter', x: ' não tem nada de sangrento: vem do inglês antigo slohtre, “lugar lamacento” — o vilarejo nasceu à beira do riacho.' },
+      { b: 'A pedra dourada', x: ' das casas é calcário local do Jurássico; por lei de preservação, reformas precisam usar a mesma pedra.' },
+      { b: 'A região enriqueceu com lã', x: ' na Idade Média — as igrejas grandes demais para vilarejos pequenos são as “wool churches”.' }
+    ],
+    photo: 'a pontinha de pedra sobre o riacho de Lower Slaughter, com as casas douradas atrás.',
+    must: 'o chá no jardim do manor no fim da tarde — é o momento mais inglês da viagem.' },
+
+  { n: '07', date: 'dom 27 set', tone: 'butter', icon: 'Plate', place: 'COTSWOLDS',
+    title: 'Sunday Roast\ne vilarejos', meta: 'DIA DE COMER DEVAGAR', bg: './bg-07.webp',
+    rows: [
+      { t: '10:00', b: 'Bourton-on-the-Water', q: 'Bourton-on-the-Water', x: ' · as pontinhas sobre o rio Windrush' },
+      { t: '13:00', b: 'Sunday Roast', x: ' · almoço num pub do vilarejo (só domingo!)' },
+      { t: '16:00', b: 'Descanso no hotel', x: ' · jardim, lareira, nada de agenda' },
+      { t: '19:45', b: 'The Wild Rabbit', q: 'The Wild Rabbit Kingham', x: ' · jantar reservado' }
+    ],
+    boxLabel: 'RESERVA', boxText: '27/09 · 19:45 · The Wild Rabbit, Kingham. Almoço de roast: reservar na manhã do dia ou chegar antes das 12h30.',
+    extra: [
+      { label: 'MAIS CURIOSIDADES', items: [
+        { b: 'O gravy ', x: 'é feito do fundo da assadeira — para o inglês, é a parte mais importante do prato.' },
+        { b: 'Bourton ', x: 'tem um modelo em miniatura de si mesma, construído em 1937 na escala 1:9 e tombado como patrimônio.' },
+        { b: 'A carne muda com a região: ', x: 'beef com Yorkshire é o clássico, mas cordeiro com molho de menta é igualmente tradicional.' }
+      ] },
+      { label: 'GUIA DO ROAST', items: [
+        { b: 'Onde: ', x: 'The Kingham Plough, The Bell at Langford e o próprio Wild Rabbit servem roast no domingo.' },
+        { b: 'Reserva: ', x: 'ligar na sexta. Os pubs bons de domingo enchem antes do fim de semana.' },
+        { b: 'Como pedir: ', x: 'escolhe-se a carne; batata, legumes, pudding e gravy vêm juntos.' },
+        { b: 'Depois: ', x: 'sticky toffee pudding é a sobremesa certa — dividir uma porção entre dois já é muito.' }
+      ] }
+    ],
+    backLabel: 'CURIOSIDADES · SUNDAY ROAST',
+    notes: [
+      { b: 'O Sunday roast', x: ' é herança da carne assada durante o culto de domingo — voltava-se da igreja e a refeição estava pronta.' },
+      { b: 'O Yorkshire pudding', x: ' surgiu para aproveitar a gordura que pingava do assado; hoje é obrigatório no prato.' },
+      { b: 'Bourton-on-the-Water', q: 'Bourton-on-the-Water', x: ' é chamada de “Veneza dos Cotswolds” pelas cinco pontes baixas de pedra do século XVIII.' }
+    ],
+    photo: 'o prato do roast visto de cima, com o Yorkshire pudding inteiro.',
+    must: 'o Sunday Roast. Só existe no domingo e costuma acabar às 15h — não deixar para depois.' },
+
+  { n: '08', date: 'seg 28 set', tone: 'sage', icon: 'House', place: 'COTSWOLDS',
+    title: 'Volta pelos\nvilarejos', meta: 'DIA DE CARRO / TÁXI', bg: './bg-08.webp',
+    rows: [
+      { t: '09:30', b: 'Bibury', q: 'Arlington Row Bibury', x: ' · Arlington Row, a fileira de casas mais fotografada da Inglaterra' },
+      { t: '11:30', b: 'Castle Combe', q: 'Castle Combe Wiltshire', x: ' · vilarejo sem postes nem antenas à vista' },
+      { t: '13:30', b: 'Burford', q: 'Burford Oxfordshire', x: ' · almoço na rua principal em descida' },
+      { t: '15:30', b: 'Stow-on-the-Wold', q: 'Stow-on-the-Wold', x: ' · a porta da igreja entre duas árvores' },
+      { t: '17:00', b: 'Broadway Tower', q: 'Broadway Tower Worcestershire', x: ' · vista de 16 condados no fim da tarde' }
+    ],
+    boxLabel: 'LOGÍSTICA', boxText: 'Sem carro, combinar um táxi por hora com o hotel — o transporte público entre vilarejos é raro.',
+    extra: [
+      { label: 'MAIS CURIOSIDADES', items: [
+        { b: 'Arlington Row ', x: 'está no verso do passaporte britânico — é oficialmente a imagem da Inglaterra rural.' },
+        { b: 'Stow-on-the-Wold ', x: 'é o vilarejo mais alto dos Cotswolds, a 240 m, e sua feira de ovelhas já movimentou 20 mil cabeças por dia.' },
+        { b: 'Burford ', x: 'era parada de diligências na estrada para Oxford; as portas largas dos hotéis antigos eram para as carruagens.' }
+      ] },
+      { label: 'GUIA DA ESTRADA', items: [
+        { b: 'Distâncias: ', x: 'Bibury→Burford 20 min, Burford→Stow 20 min, Stow→Broadway 25 min. Castle Combe é 1h ao sul, o desvio maior.' },
+        { b: 'Estacionamento: ', x: 'quase todo vilarejo tem um pay-and-display; levar moedas ou o app RingGo.' },
+        { b: 'Estradinhas: ', x: 'pista única com passing places — quem está mais perto do recuo para e dá passagem.' },
+        { b: 'A porta da igreja de Stow, ', x: 'entre dois teixos, é a foto mais procurada da região. Fica atrás do mercado.' }
+      ] }
+    ],
+    backLabel: 'CURIOSIDADES · VILAREJOS',
+    notes: [
+      { b: 'Arlington Row', x: ' em Bibury era um galpão de lã do século XIV, convertido em casas de tecelões nos anos 1600.' },
+      { b: 'Castle Combe', q: 'Castle Combe Wiltshire', x: ' vira set de cinema com frequência justamente porque não há nada moderno na rua.' },
+      { b: 'A Broadway Tower', x: ' é um “folly”: uma torre construída em 1798 só para enfeitar a paisagem de uma condessa.' }
+    ],
+    photo: 'a Arlington Row de Bibury vista da pontinha do outro lado do riacho.',
+    must: 'Castle Combe — a rua sem um único poste ou antena à vista. Se cansar, cortar Stow.' },
+
+  { n: '09', date: 'ter 29 set', tone: 'blush', icon: 'Feather', place: 'COTSWOLDS · LONDRES',
+    title: 'Shakespeare\ne spa', meta: 'ÚLTIMO DIA INTEIRO', bg: './bg-09.webp',
+    rows: [
+      { t: '09:30', b: 'Stratford-upon-Avon', q: 'Shakespeare\'s Birthplace Stratford-upon-Avon', x: ' · casa de Shakespeare e o rio Avon' },
+      { t: '13:00', b: 'Almoço', x: ' · algo simples à beira do rio' },
+      { t: '15:30', b: 'Spa no hotel', q: 'Lucknam Park Hotel & Spa', x: ' · Lucknam Park / manor house · massagem e sauna' },
+      { t: '19:30', b: 'Último jantar', x: ' no campo · brindar a viagem' }
+    ],
+    boxLabel: 'MALAS', boxText: 'Arrumar as malas hoje: amanhã é dia de transfer, e comprinhas do Borough e da Penhaligon\u2019s ocupam mais espaço do que parecem.',
+    extra: [
+      { label: 'MAIS CURIOSIDADES', items: [
+        { b: 'Shakespeare ', x: 'nasceu e morreu em 23 de abril — e deixou em testamento a “segunda melhor cama” para a esposa.' },
+        { b: 'O Royal Shakespeare Theatre ', x: 'encena peças dele na cidade desde 1879; dá para ver a bilheteria do dia sem plano.' },
+        { b: 'A palavra spa ', x: 'vem da cidade belga de Spa, mas foram os banhos romanos de Bath, a 40 min daqui, que criaram o hábito na Inglaterra.' }
+      ] },
+      { label: 'GUIA DO ÚLTIMO DIA', items: [
+        { b: 'Stratford: ', x: 'o combo de três casas vale mais que a entrada só da Birthplace; tudo a pé no centro.' },
+        { b: 'Spa: ', x: 'chegar 30 min antes do tratamento para usar sauna e piscina — está incluso.' },
+        { b: 'Compras: ', x: 'guardar as notas fiscais das lojas com VAT refund num envelope só.' },
+        { b: 'Jantar: ', x: 'pedir a mesa junto à janela na reserva. É a última noite no campo.' }
+      ] }
+    ],
+    backLabel: 'CURIOSIDADES · STRATFORD',
+    notes: [
+      { b: 'Shakespeare', x: ' nasceu e morreu em Stratford — e está enterrado na Holy Trinity Church, a 10 min do centro.' },
+      { b: 'A casa da Henley Street', x: ' é a original da família; a peça mais visitada da cidade é a janela com assinaturas de visitantes do século XIX.' },
+      { b: 'Broadway e Stratford', x: ' ficam a ~40 min uma da outra — dá para juntar as duas no mesmo dia se sobrar ânimo.' }
+    ],
+    photo: 'os dois no banco à beira do Avon, com os barquinhos passando atrás.',
+    must: 'a massagem em casal no spa. Reservar com antecedência — o fim de tarde esgota primeiro.' },
+
+  { n: '10', date: 'qua 30 set', tone: 'sky', icon: 'Plane', place: 'VOLTA PARA CASA',
+    title: 'Volta\nLHR → GRU', meta: 'LA8085 · CÓD. LPPVIW', bg: './bg-10.webp',
+    rows: [
+      { t: '10:00', b: 'Café da manhã longo', x: ' e check-out sem correria' },
+      { t: '14:00', b: 'Transfer', x: ' · campo → Heathrow (~2h30 de estrada)' },
+      { t: '18:20', b: 'Chegar no aeroporto', q: 'Heathrow Airport Terminal 3', x: ' · VAT refund, se houver compras, antes do check-in' },
+      { t: '21:20', b: 'Decolagem LHR', x: ' · LA8085' },
+      { t: '04:45', b: 'Chegada a GRU', x: ' (+1 dia) · qui 01 out' }
+    ],
+    boxLabel: 'ANTES DE SAIR', boxText: 'Conferir gavetas e cofre do hotel · deixar troco em libras acessível para o caminho',
+    extra: [
+      { label: 'GUIA DA VOLTA', items: [
+        { b: 'Estrada: ', x: 'Cotswolds → Heathrow leva 2h30 sem trânsito e mais de 3h na M4 no fim do dia. Sair às 14h.' },
+        { b: 'Check-in: ', x: 'LATAM costuma abrir 3h antes; bagagem despachada fecha 1h antes da partida.' },
+        { b: 'VAT refund: ', x: 'fazer antes de despachar as malas — o guichê pode pedir para ver as compras.' },
+        { b: 'Sobrou libra? ', x: 'gastar no duty free; casa de câmbio de aeroporto devolve muito pouco.' }
+      ] },
+      { label: 'PARA A PRÓXIMA', items: [
+        { b: 'Ficou de fora: ', x: 'Bath, Oxford, Windsor e os penhascos de Dover — todos a menos de 2h de Londres.' },
+        { b: 'Melhor época: ', x: 'maio e junho têm dias longos e jardins abertos; setembro ganha em vinhedos e menos gente.' },
+        { b: 'Do aeroporto para casa: ', x: 'combinar o carro antes de embarcar — pousar às 4h45 e resolver isso na hora é ruim.' }
+      ] }
+    ],
+    backLabel: 'PARA A VOLTA',
+    notes: [
+      { b: 'O trajeto Cotswolds → Heathrow', x: ' pode passar de 3h com trânsito na M4; sair com folga de verdade.' },
+      { b: 'Compras acima de £', x: ' feitas em loja participante podem ter devolução de imposto — guardar as notas fiscais juntas.' },
+      { b: 'Voando para oeste→leste de volta', x: ' o jet lag é menor: chegar de manhã e aguentar até a noite resolve.' }
+    ],
+    photo: 'os dois no jardim do hotel, malas ao lado, antes de entrar no carro.',
+    must: 'o último café da manhã sem pressa. E conferir o cofre do quarto antes de sair.' }
+];
+
+class Component extends DCLogic {
+  state = { i: 0, flipped: {}, drag: 0, dragging: false, scale: 1, bpage: {}, vdrag: null };
+
+  fit = () => {
+    const w = window.innerWidth, h = window.innerHeight;
+    const s = Math.min(1, (w - 34) / 382, (h - 168) / 628);
+    if (Math.abs(s - this.state.scale) > 0.004) this.setState({ scale: Math.max(0.45, s) });
+  };
+
+  componentDidMount() {
+    this.fit();
+    window.addEventListener('resize', this.fit);
+    try {
+      const s = JSON.parse(localStorage.getItem('guia-ing-v1') || 'null');
+      if (s && typeof s.i === 'number') this.setState({ i: Math.min(DAYS.length, Math.max(0, s.i)) });
+    } catch (e) {}
+    this._key = (e) => {
+      if (e.key === 'ArrowRight') this.go(1);
+      if (e.key === 'ArrowLeft') this.go(-1);
+    };
+    window.addEventListener('keydown', this._key);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this._key);
+    window.removeEventListener('resize', this.fit);
+  }
+
+  set(i) {
+    const n = Math.min(DAYS.length, Math.max(0, i));
+    try { localStorage.setItem('guia-ing-v1', JSON.stringify({ i: n })); } catch (e) {}
+    this.setState({ i: n, drag: 0, dragging: false });
+  }
+  go(d) { this.set(this.state.i + d); }
+  flip(n) { this.setState(s => ({ flipped: Object.assign({}, s.flipped, { [n]: !s.flipped[n] }) })); }
+  locked() { return !!this.state.flipped[this.state.i]; }
+  end() {
+    const d = this.state.drag;
+    const lim = this.locked() ? 130 : 70;
+    if (d < -lim) return this.go(1);
+    if (d > lim) return this.go(-1);
+    this.setState({ drag: 0, dragging: false });
+  }
+
+  wrapStyle(off) {
+      const base = 'position:absolute;inset:0;transform-style:preserve-3d;touch-action:pan-y;';
+      let wrap;
+      if (off === 0) {
+        const x = this.state.drag;
+        wrap = base + 'z-index:30;will-change:transform;transform:translateX(' + x + 'px) rotate(' + (x * 0.025) + 'deg);transition:transform ' +
+          (this.state.dragging ? '60ms linear' : '420ms cubic-bezier(.22,.7,.2,1)') + ';';
+      } else if (off > 0 && off < 4) {
+        wrap = base + 'z-index:' + (20 - off) + ';pointer-events:none;transform:translateY(' + (-7 * off) + 'px) scale(' +
+          (1 - 0.022 * off) + ') rotate(' + (1.6 * off) + 'deg);transition:transform .42s cubic-bezier(.22,.7,.2,1);';
+      } else if (off >= 4) {
+        wrap = base + 'z-index:1;opacity:0;pointer-events:none;transform:translateY(-24px) scale(.9);transition:transform .42s,opacity .42s;';
+      } else {
+        wrap = base + 'z-index:1;opacity:0;pointer-events:none;transform:translateX(-118%) rotate(-11deg);transition:transform .42s cubic-bezier(.22,.7,.2,1),opacity .42s;';
+      }
+      return wrap;
+  }
+
+  backPage(n, d) {
+    const pages = [{ label: d.backLabel, items: d.notes }].concat(d.extra || []);
+    const cur = Math.min(this.state.bpage[n] || 0, pages.length - 1);
+    const dy = (this.state.vdrag && this.state.vdrag.n === n) ? this.state.vdrag.y : 0;
+    const goP = (k) => {
+      const t = Math.min(pages.length - 1, Math.max(0, k));
+      this.setState(s => ({ bpage: Object.assign({}, s.bpage, { [n]: t }), vdrag: null }));
+    };
+    return {
+      label: pages[cur].label + '  ' + (cur + 1) + '/' + pages.length,
+      items: pages[cur].items,
+      dots: pages.map((p, k) => ({
+        s: 'width:5px;height:' + (k === cur ? 14 : 5) + 'px;border-radius:3px;background:' +
+          (k === cur ? '#8a7b67' : '#cfc3b1') + ';transition:all .3s;'
+      })),
+      slide: 'display:flex;flex-direction:column;gap:10px;transform:translateY(' + (dy * 0.35) + 'px);opacity:' +
+        (1 - Math.min(0.45, Math.abs(dy) / 260)) + ';transition:' +
+        (dy ? 'none' : 'transform .34s cubic-bezier(.22,.7,.2,1),opacity .34s') + ';',
+      vStart: (e) => { this._vy = e.touches[0].clientY; this._vn = n; },
+      vMove: (e) => {
+        if (this._vn !== n) return;
+        const y = e.touches[0].clientY - this._vy;
+        if (Math.abs(y) < 5) return;
+        this.setState({ vdrag: { n, y } });
+      },
+      vEnd: () => {
+        const y = (this.state.vdrag && this.state.vdrag.n === n) ? this.state.vdrag.y : 0;
+        this._vn = null;
+        if (y < -45) return goP(cur + 1);
+        if (y > 45) return goP(cur - 1);
+        this.setState({ vdrag: null });
+      },
+      vWheel: (e) => {
+        const now = Date.now();
+        if (this._wt && now - this._wt < 420) return;
+        if (Math.abs(e.deltaY) < 12) return;
+        this._wt = now;
+        goP(cur + (e.deltaY > 0 ? 1 : -1));
+      }
+    };
+  }
+
+  renderVals() {
+    const cur = this.state.i;
+    const days = DAYS.map((d, n) => {
+      const p = PAL[d.tone];
+      const pos = n + 1;
+      const wrap = this.wrapStyle(pos - cur);
+      const on = cur === pos;
+      const parts = d.title.split('\n');
+      const bp = this.backPage(n, d);
+      return {
+        kicker: 'Dia ' + d.n + ' · ' + d.date,
+        title1: parts[0], title2: parts[1] || '',
+        meta: d.meta, notes: d.notes, place: d.place,
+        rows: d.rows.map(r => Object.assign({}, r, {
+          url: r.q ? 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(r.q) : ''
+        })),
+        boxLabel: d.boxLabel, boxText: d.boxText, foot: d.foot || '',
+        photo: d.photo || '', must: d.must || '',
+        icPlane: d.icon === 'Plane', icTree: d.icon === 'Tree', icTower: d.icon === 'Tower',
+        icTeapot: d.icon === 'Teapot', icHouses: d.icon === 'Houses', icTrain: d.icon === 'Train',
+        icPlate: d.icon === 'Plate', icHouse: d.icon === 'House', icFeather: d.icon === 'Feather',
+        iconWrap: 'display:flex;align-items:center;justify-content:center;width:15px;height:15px;flex:0 0 auto;line-height:0;color:' + ICOL[d.n] + ';',
+        wrap,
+        inner: 'position:absolute;inset:0;transform-style:preserve-3d;transition:transform .62s cubic-bezier(.3,.8,.25,1);transform:rotateY(' +
+          (this.state.flipped[pos] ? 180 : 0) + 'deg);',
+        frontFace: 'position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:26px;border:9px solid ' +
+          p.head + ';background:#fffdf8;box-shadow:0 18px 40px -18px rgba(70,55,40,.45),0 0 0 1px rgba(120,100,80,.10);overflow:hidden;display:flex;flex-direction:column;',
+        headInner: 'position:relative;z-index:2;',
+        mirrorImg: d.mirror ? 'position:absolute;inset:0;z-index:0;background:url(' + d.bg + ') center/cover;transform:scaleX(-1);' : '',
+        mirrorVeil: d.mirror ? 'position:absolute;inset:0;z-index:1;background-image:linear-gradient(100deg,' + p.veil + ' 0%,' + p.veil + ' 42%,rgba(255,255,255,0) 82%);' : '',
+        head: 'position:relative;padding:17px 22px 14px;border-bottom:1px solid rgba(120,100,80,.16);' +
+          (d.mirror
+            ? 'background:' + p.head + ';'
+            : d.bg
+            ? 'background-image:linear-gradient(100deg,' + p.veil + ' 0%,' + p.veil + ' 42%,rgba(255,255,255,0) 82%),url(' + d.bg +
+              ');background-size:cover,cover;background-position:center,center;'
+            : 'background:' + p.head + ';'),
+        btn: 'border:none;cursor:pointer;background:' + p.btn + ';color:' + p.ink +
+          ';font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;letter-spacing:0.14em;padding:9px 14px;border-radius:999px;',
+        backFace: 'position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;transform:rotateY(180deg);border-radius:26px;border:9px solid ' +
+          p.head + ';background:' +
+          p.back + ';box-shadow:0 18px 40px -18px rgba(70,55,40,.45),0 0 0 1px rgba(120,100,80,.10);overflow:hidden;display:flex;flex-direction:column;',
+        dot: 'width:' + (on ? 18 : 6) + 'px;height:6px;border-radius:4px;cursor:pointer;background:' +
+          (on ? '#8b7c69' : '#cfc3b1') + ';transition:all .3s;',
+        pageLabel: bp.label,
+        pageItems: bp.items,
+        pageDots: bp.dots,
+        pageSlide: bp.slide,
+        vStart: bp.vStart, vMove: bp.vMove, vEnd: bp.vEnd, vWheel: bp.vWheel,
+        flip: () => this.flip(pos),
+        jump: () => this.set(pos)
+      };
+    });
+    const s = this.state.scale;
+    return {
+      days,
+      coverWrap: this.wrapStyle(0 - cur),
+      coverInner: 'position:absolute;inset:0;transform-style:preserve-3d;transition:transform .62s cubic-bezier(.3,.8,.25,1);transform:rotateY(' +
+        (this.state.flipped[0] ? 180 : 0) + 'deg);',
+      coverDot: 'width:' + (cur === 0 ? 18 : 6) + 'px;height:6px;border-radius:4px;cursor:pointer;background:' +
+        (cur === 0 ? '#8b7c69' : '#cfc3b1') + ';transition:all .3s;',
+      coverFlip: () => this.flip(0),
+      coverJump: () => this.set(0),
+      stageBox: 'position:relative;width:' + (382 * s) + 'px;height:' + (628 * s) + 'px;flex:0 0 auto;',
+      stage: 'position:absolute;top:0;left:0;width:382px;height:628px;transform:scale(' + s + ');transform-origin:top left;perspective:1600px;',
+      next: () => this.go(1), prev: () => this.go(-1),
+      onTouchStart: (e) => { this._x = e.touches[0].clientX; this._y0 = e.touches[0].clientY; this._armed = true; },
+      onTouchMove: (e) => {
+        if (!this._armed) return;
+        const dx = e.touches[0].clientX - this._x;
+        const dy = e.touches[0].clientY - this._y0;
+        const lock = this.locked();
+        if (!this.state.dragging) {
+          if (Math.abs(dx) < (lock ? 10 : 6)) return;
+          if (lock && Math.abs(dx) < Math.abs(dy) * 1.5) return;
+        }
+        this.setState({ dragging: true, drag: lock ? dx * 0.55 : dx });
+      },
+      onTouchEnd: () => { this._armed = false; if (this.state.dragging) this.end(); },
+      onMouseDown: (e) => {
+        this._x = e.clientX;
+        const mm = (ev) => {
+          const dx = ev.clientX - this._x;
+          const lock = this.locked();
+          if (!this.state.dragging && Math.abs(dx) < (lock ? 10 : 6)) return;
+          this.setState({ dragging: true, drag: lock ? dx * 0.55 : dx });
+        };
+        const mu = () => {
+          window.removeEventListener('mousemove', mm);
+          window.removeEventListener('mouseup', mu);
+          if (this.state.dragging) this.end();
+        };
+        window.addEventListener('mousemove', mm); window.addEventListener('mouseup', mu);
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>
