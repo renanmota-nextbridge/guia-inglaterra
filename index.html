@@ -30,6 +30,7 @@
   html, body { margin: 0; padding: 0; background: #f3ece2; -webkit-tap-highlight-color: transparent; }
   html, body, #dc-root { height: 100%; overflow: hidden; overscroll-behavior: none; }
   #dc-root > div { height: 100%; }
+  button { touch-action: manipulation; }
   * { box-sizing: border-box; }
   a { color: #7a6a58; }
   a:hover { color: #4a4038; }
@@ -45,11 +46,11 @@
   <div style="{{ stageBox }}"><div style="{{ stage }}" onTouchStart="{{ onTouchStart }}" onTouchMove="{{ onTouchMove }}" onTouchEnd="{{ onTouchEnd }}" onMouseDown="{{ onMouseDown }}">
     <div style="{{ coverWrap }}">
       <div style="{{ coverInner }}">
-        <div style="position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:26px;background:#f4f7fb;box-shadow:0 18px 40px -18px rgba(70,55,40,.45),0 0 0 1px rgba(120,100,80,.10);overflow:hidden;display:flex;flex-direction:column">
+        <div style="{{ coverFront }}"><div style="position:absolute;inset:0;border-radius:26px;background:#f4f7fb;box-shadow:0 18px 40px -18px rgba(70,55,40,.45),0 0 0 1px rgba(120,100,80,.10);overflow:hidden;display:flex;flex-direction:column">
           <img src="./capa.webp" alt="Mayara &amp; Renan na Inglaterra" style="width:100%;height:100%;object-fit:cover;display:block">
           <button onClick="{{ coverFlip }}" style="position:absolute;bottom:16px;right:16px;border:none;cursor:pointer;background:rgba(255,253,248,.92);color:#33406b;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;letter-spacing:0.14em;padding:9px 14px;border-radius:999px;box-shadow:0 4px 12px -6px rgba(40,50,80,.5)">VIRAR ↻</button>
-        </div>
-        <div style="position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;transform:rotateY(180deg);border-radius:26px;background:#eef2f9;box-shadow:0 18px 40px -18px rgba(70,55,40,.45),0 0 0 1px rgba(120,100,80,.10);overflow:hidden;display:flex;flex-direction:column">
+        </div></div>
+        <div style="{{ coverBack }}"><div style="position:absolute;inset:0;border-radius:26px;background:#eef2f9;box-shadow:0 18px 40px -18px rgba(70,55,40,.45),0 0 0 1px rgba(120,100,80,.10);overflow:hidden;display:flex;flex-direction:column">
           <div style="flex:1;overflow:hidden;padding:26px 24px 12px;display:flex;flex-direction:column;gap:14px">
             <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;letter-spacing:0.2em;color:#5a6280">A VIAGEM</div>
             <div style="font-size:14.5px;line-height:1.5;text-wrap:pretty"><b>10 dias</b> · 21 a 30 de setembro · Londres e Cotswolds</div>
@@ -61,7 +62,7 @@
           <div style="display:flex;align-items:center;justify-content:flex-end;padding:11px 18px 13px;border-top:1px solid rgba(120,100,80,.12)">
             <button onClick="{{ coverFlip }}" style="border:none;cursor:pointer;background:#fffdf8;color:#33406b;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;letter-spacing:0.14em;padding:9px 14px;border-radius:999px">↺ VOLTAR</button>
           </div>
-        </div>
+        </div></div>
       </div>
     </div>
     <sc-for list="{{ days }}" as="day" hint-placeholder-count="3">
@@ -552,6 +553,12 @@ class Component extends DCLogic {
   go(d) { this.set(this.state.i + d); }
   flip(n) { this.setState(s => ({ flipped: Object.assign({}, s.flipped, { [n]: !s.flipped[n] }) })); }
   locked() { return !!this.state.flipped[this.state.i]; }
+  // Only the face showing takes taps; some mobile browsers hit-test the hidden one.
+  faceTaps(n, back) { return !!this.state.flipped[n] === back ? '' : 'pointer-events:none;'; }
+  coverFace(back) {
+    return this.faceTaps(0, back) + 'position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;' +
+      (back ? 'transform:rotateY(180deg);' : '');
+  }
   end() {
     const d = this.state.drag;
     const lim = this.locked() ? 130 : 70;
@@ -645,7 +652,7 @@ class Component extends DCLogic {
         wrap,
         inner: 'position:absolute;inset:0;transform-style:preserve-3d;transition:transform .62s cubic-bezier(.3,.8,.25,1);transform:rotateY(' +
           (this.state.flipped[pos] ? 180 : 0) + 'deg);',
-        frontFace: 'position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:26px;border:9px solid ' +
+        frontFace: this.faceTaps(pos, false) + 'position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:26px;border:9px solid ' +
           p.head + ';background:#fffdf8;box-shadow:0 18px 40px -18px rgba(70,55,40,.45),0 0 0 1px rgba(120,100,80,.10);overflow:hidden;display:flex;flex-direction:column;',
         headInner: 'position:relative;z-index:2;',
         mirrorImg: d.mirror ? 'position:absolute;inset:0;z-index:0;background:url(' + d.bg + ') center/cover;transform:scaleX(-1);' : '',
@@ -659,7 +666,7 @@ class Component extends DCLogic {
             : 'background:' + p.head + ';'),
         btn: 'border:none;cursor:pointer;background:' + p.btn + ';color:' + p.ink +
           ';font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;letter-spacing:0.14em;padding:9px 14px;border-radius:999px;',
-        backFace: 'position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;transform:rotateY(180deg);border-radius:26px;border:9px solid ' +
+        backFace: this.faceTaps(pos, true) + 'position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;transform:rotateY(180deg);border-radius:26px;border:9px solid ' +
           p.head + ';background:' +
           p.back + ';box-shadow:0 18px 40px -18px rgba(70,55,40,.45),0 0 0 1px rgba(120,100,80,.10);overflow:hidden;display:flex;flex-direction:column;',
         dot: 'width:' + (on ? 18 : 6) + 'px;height:6px;border-radius:4px;cursor:pointer;background:' +
@@ -682,11 +689,13 @@ class Component extends DCLogic {
       coverDot: 'width:' + (cur === 0 ? 18 : 6) + 'px;height:6px;border-radius:4px;cursor:pointer;background:' +
         (cur === 0 ? '#8b7c69' : '#cfc3b1') + ';transition:all .3s;',
       coverFlip: () => this.flip(0),
+      coverFront: this.coverFace(false),
+      coverBack: this.coverFace(true),
       coverJump: () => this.set(0),
       stageBox: 'position:relative;width:' + (382 * s) + 'px;height:' + (628 * s) + 'px;flex:0 0 auto;',
       stage: 'position:absolute;top:0;left:0;width:382px;height:628px;transform:scale(' + s + ');transform-origin:top left;perspective:1600px;',
       next: () => this.go(1), prev: () => this.go(-1),
-      onTouchStart: (e) => { this._x = e.touches[0].clientX; this._y0 = e.touches[0].clientY; this._armed = true; },
+      onTouchStart: (e) => { if (e.target.closest && e.target.closest('button')) { this._armed = false; return; } this._x = e.touches[0].clientX; this._y0 = e.touches[0].clientY; this._armed = true; },
       onTouchMove: (e) => {
         if (!this._armed) return;
         const dx = e.touches[0].clientX - this._x;
@@ -700,6 +709,7 @@ class Component extends DCLogic {
       },
       onTouchEnd: () => { this._armed = false; if (this.state.dragging) this.end(); },
       onMouseDown: (e) => {
+        if (e.target.closest && e.target.closest('button')) return;
         this._x = e.clientX;
         const mm = (ev) => {
           const dx = ev.clientX - this._x;
