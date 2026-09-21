@@ -274,7 +274,7 @@ const DAYS = [
     rows: [
       { t: '09:30', b: 'Ônibus turístico', x: ' · pegar a linha perto de Kensington e ver a cidade de cima' },
       { t: '11:00', b: 'Buckingham Palace', q: 'Buckingham Palace London', x: ' · troca da guarda (conferir o dia: costuma ser 11h)' },
-      { t: '12:30', b: 'Westminster', q: 'Westminster Abbey London', x: ' · abadia, Big Ben e a ponte para a margem sul' },
+      { t: '12:30', b: 'Big Ben', q: 'Westminster Bridge London', x: ' · Parlamento e a ponte para a margem sul (a abadia fica para amanhã)' },
       { t: '14:30', b: 'London Eye', q: 'London Eye', x: ' · almoço leve no South Bank e a roda no fim da tarde' },
       { t: '17:30', b: 'Tower Bridge', q: 'Tower Bridge London', x: ' · pôr do sol no rio' },
       { t: '19:30', b: 'Emilia\u2019s Pasta', q: 'Emilia\'s Crafted Pasta St Katharine Docks', x: ' · jantar em St Katharine Docks, ao lado da ponte' }
@@ -284,7 +284,7 @@ const DAYS = [
       { label: 'MAIS CURIOSIDADES', items: [
         { b: 'O London Eye ', x: 'foi construído como atração temporária para o milênio, com 5 anos de permissão. Nunca saiu.' },
         { b: 'No Parlamento, ', x: 'ninguém pode morrer oficialmente — a tradição diz que renderia funeral de Estado. É lenda, mas todo guia conta.' },
-        { b: 'A Abadia de Westminster ', x: 'guarda mais de 3.300 sepultamentos, incluindo Newton, Darwin e Stephen Hawking.' }
+        { b: 'A ponte de Westminster ', x: 'é verde como os bancos da Câmara dos Comuns; a de Lambeth, logo ao lado, é vermelha como os da Câmara dos Lordes.' }
       ] },
       { label: 'GUIA DO DIA', items: [
         { b: 'Troca da guarda: ', x: 'às 11h, em dias alternados — confirmar no site da Household Division na véspera. Chuva cancela.' },
@@ -296,17 +296,18 @@ const DAYS = [
     backLabel: 'CURIOSIDADES · SOUTH BANK',
     notes: [
       { b: 'Big Ben', x: ' é o nome do sino, não da torre — ela se chama Elizabeth Tower desde 2012.' },
-      { b: 'A Abadia de Westminster', x: ' recebe coroações desde 1066: são quase mil anos de reis coroados no mesmo ponto.' },
+      { b: 'No Palácio de Buckingham', x: ' a bandeira diz se o rei está em casa: Royal Standard hasteada quando está, Union Jack quando não.' },
       { b: 'A Tower Bridge', x: ' ainda abre cerca de 800 vezes por ano; o horário das aberturas é publicado com antecedência.' }
     ],
     photo: 'o Big Ben inteiro da ponte de Westminster, lado sul, no fim da tarde.',
     must: 'a troca da guarda em Buckingham — chegar 40 min antes para pegar lugar na grade.' },
 
-  { n: '04', date: 'qui 24 set', tone: 'butter', icon: 'Teapot', place: 'BOROUGH · MAYFAIR',
-    title: 'Mercado e\nchá da tarde', meta: 'COMER BEM O DIA INTEIRO', bg: './bg-04.webp', mirror: true,
+  { n: '04', date: 'qui 24 set', tone: 'butter', icon: 'Teapot', place: 'WESTMINSTER · BOROUGH',
+    title: 'Abadia, mercado\ne chá da tarde', meta: 'COMER BEM O DIA INTEIRO', bg: './bg-04.webp', mirror: true,
     rows: [
-      { t: '10:00', b: 'Borough Market', q: 'Borough Market London', x: ' · sanduíche de porco trufado e morangos com chocolate' },
-      { t: '13:00', b: 'Penhaligon\u2019s', q: 'Penhaligon\'s Covent Garden London', x: ' · escolher um perfume com calma na loja' },
+      { t: '09:30', b: 'Abadia de Westminster', q: 'Westminster Abbey London', x: ' · na abertura, com calma (~1h30)' },
+      { t: '11:30', b: 'Borough Market', q: 'Borough Market London', x: ' · almoço: sanduíche de porco trufado e morangos com chocolate' },
+      { t: '13:30', b: 'Penhaligon\u2019s', q: 'Penhaligon\'s Covent Garden London', x: ' · escolher um perfume com calma na loja' },
       { t: '15:30', b: 'Chá da tarde clássico', x: ' · reservar com antecedência (leva ~2h)' },
       { t: '18:30', b: 'Piccadilly Circus', q: 'Piccadilly Circus London', x: ' e Chinatown · luzes e um passeio sem pressa' },
       { t: '20:30', b: 'The Ivy', q: 'The Ivy West Street London', x: ' · jantar reservado em Covent Garden' }
@@ -316,20 +317,20 @@ const DAYS = [
       { label: 'MAIS CURIOSIDADES', items: [
         { b: 'O Borough ', x: 'quase fechou nos anos 1990: foi salvo virando mercado gourmet, quando os atacadistas foram para Nine Elms.' },
         { b: 'Piccadilly Circus ', x: 'tem telas luminosas desde 1908 — e elas só se apagaram durante as duas guerras.' },
-        { b: 'A Chinatown atual ', x: 'nasceu nos anos 1950 em Soho; a original ficava em Limehouse, junto às docas.' }
+        { b: 'A Abadia de Westminster ', x: 'guarda mais de 3.300 sepultamentos, incluindo Newton, Darwin e Stephen Hawking.' }
       ] },
-      { label: 'GUIA DAS COMPRAS', items: [
-        { b: 'Penhaligon\u2019s: ', x: 'a loja de Covent Garden faz consulta de perfume guiada, ~30 min, melhor de manhã.' },
-        { b: 'No Borough: ', x: 'ir antes das 11h. O sanduíche de porco é do Roast Hog, e os morangos com chocolate ficam na banca da entrada da Stoney St.' },
+      { label: 'GUIA DO DIA', items: [
+        { b: 'Abadia: ', x: 'comprar o ingresso online com horário e chegar na abertura. Westminster → London Bridge é 10 min de metrô, linha Jubilee.' },
+        { b: 'No Borough: ', x: 'chegar antes do meio-dia, quando enche. O sanduíche de porco é do Roast Hog, e os morangos com chocolate ficam na banca da entrada da Stoney St.' },
         { b: 'Chá da tarde: ', x: 'reservar com semanas de antecedência. Homem costuma precisar de calça e sapato fechado.' },
         { b: 'The Ivy: ', x: 'o original fica na West Street, em Covent Garden — dá para ir a pé de Piccadilly depois do passeio.' }
       ] }
     ],
-    backLabel: 'CURIOSIDADES · MERCADO E CHÁ',
+    backLabel: 'CURIOSIDADES · ABADIA E CHÁ',
     notes: [
       { b: 'O Borough Market', x: ' tem registros de comércio de comida no mesmo pedaço de Southwark desde o século XII.' },
       { b: 'O afternoon tea', x: ' foi invenção da duquesa de Bedford, nos anos 1840, para segurar a fome entre o almoço e o jantar tardio.' },
-      { b: 'A Penhaligon\u2019s', x: ' nasceu em 1870 de um barbeiro da corte; várias fragrâncias da casa são as mesmas do catálogo vitoriano.' }
+      { b: 'A Abadia de Westminster', x: ' recebe coroações desde 1066: são quase mil anos de reis coroados no mesmo ponto.' }
     ],
     photo: 'a torre de doces do chá da tarde com as duas taças na frente.',
     must: 'o sanduíche de porco trufado do Borough Market. Come-se de baixo para cima no chá: sanduíche, scone, doce.' },
