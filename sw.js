@@ -1,5 +1,5 @@
 // Bump VERSION whenever any file changes, so phones pick up the new copy.
-const VERSION = 'guia-ing-v16';
+const VERSION = 'guia-ing-v17';
 const ASSETS = [
   './',
   './index.html',
