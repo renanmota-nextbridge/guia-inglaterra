@@ -1,5 +1,5 @@
 // Bump VERSION whenever any file changes, so phones pick up the new copy.
-const VERSION = 'guia-ing-v8';
+const VERSION = 'guia-ing-v9';
 const ASSETS = [
   './',
   './index.html',
@@ -13,7 +13,8 @@ const ASSETS = [
   './capa.webp',
   './bg-voo.webp',
   './bg-02.webp', './bg-03.webp', './bg-04.webp', './bg-05.webp',
-  './bg-06.webp', './bg-07.webp', './bg-08.webp', './bg-09.webp', './bg-10.webp'
+  './bg-06.webp', './bg-07.webp', './bg-08.webp', './bg-09.webp', './bg-10.webp',
+  './bg-extra.webp', './bg-lojas-londres.webp', './bg-lojas-campo.webp'
 ];
 
 self.addEventListener('install', (e) => {

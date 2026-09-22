@@ -164,13 +164,13 @@
                     <div style="position:absolute;left:4px;top:0;width:6px;height:3px;border-radius:2px 2px 0 0;background:#7c6f5e"></div>
                     <div style="position:absolute;left:4.5px;bottom:2.5px;width:6px;height:6px;border-radius:50%;box-shadow:inset 0 0 0 1.5px #7c6f5e"></div>
                   </div>
-                  <div style="font-size:12.5px;line-height:1.45;text-wrap:pretty"><b>A foto do dia · </b>{{ day.photo }}</div>
+                  <div style="font-size:12.5px;line-height:1.45;text-wrap:pretty"><b>{{ day.photoLabel }} · </b>{{ day.photo }}</div>
                 </div>
                 <div style="display:flex;gap:9px;align-items:flex-start;padding:10px 12px;border-radius:13px;background:#fffdf8">
                   <div style="position:relative;width:15px;height:13px;flex:0 0 auto;margin-top:2px">
                     <div style="position:absolute;left:1px;top:0;width:13px;height:13px;background:#7c6f5e;clip-path:polygon(50% 0%,62% 35%,100% 37%,70% 60%,80% 100%,50% 76%,20% 100%,30% 60%,0% 37%,38% 35%)"></div>
                   </div>
-                  <div style="font-size:12.5px;line-height:1.45;text-wrap:pretty"><b>Imperdível · </b>{{ day.must }}</div>
+                  <div style="font-size:12.5px;line-height:1.45;text-wrap:pretty"><b>{{ day.mustLabel }} · </b>{{ day.must }}</div>
                 </div>
               </div>
             </div>
@@ -205,7 +205,7 @@ const PAL = {
   butter:{ head: '#f0e5c9', back: '#f9f2e0', btn: '#f0e5c9', ink: '#544a31', veil: 'rgba(249,239,214,.94)' }
 };
 
-const ICOL = { '01':'#7B9FD4','02':'#6AA57C','03':'#4A7FB5','04':'#B08F52','05':'#C4738B','06':'#5C9A6B','07':'#B08A44','08':'#4F8C69','09':'#B67689','10':'#6B8CBA' };
+const ICOL = { '01':'#7B9FD4','02':'#6AA57C','03':'#4A7FB5','04':'#B08F52','05':'#C4738B','06':'#5C9A6B','07':'#B08A44','08':'#4F8C69','09':'#B67689','10':'#6B8CBA','11':'#8A7B67','12':'#4A7FB5','13':'#5C9A6B' };
 
 const DAYS = [
   { n: '01', date: 'seg 21 set', tone: 'sky', icon: 'Plane', place: 'EM VOO',
@@ -483,7 +483,7 @@ const DAYS = [
       { label: 'GUIA DO DIA', items: [
         { b: 'Spa: ', x: 'chegar 30 min antes do tratamento para usar sauna e piscina.' },
         { b: 'Jantar: ', x: 'pedir a mesa junto à janela na reserva. É a última noite da viagem.' },
-        { b: 'Compras: ', x: 'guardar as notas fiscais das lojas com VAT refund num envelope só.' },
+        { b: 'Compras: ', x: 'não há mais devolução de imposto no aeroporto desde 2021 — só sai sem os 20% se a própria loja enviar para o Brasil.' },
         { b: 'Se bater vontade de sair: ', x: 'Castle Combe fica a 15 min e Bath a uns 20. Mas hoje a ideia é não ter ideia.' }
       ] }
     ],
@@ -502,7 +502,7 @@ const DAYS = [
       { t: '10:00', b: 'Café da manhã longo', x: ' e check-out sem correria' },
       { t: '14:00', b: 'Estrada', x: ' · Lucknam Park → Heathrow pela M4 (~1h45)' },
       { t: '16:30', b: 'Devolver o carro', x: ' · tanque cheio e fotos na entrega' },
-      { t: '18:20', b: 'Chegar no aeroporto', q: 'Heathrow Airport Terminal 3', x: ' · VAT refund, se houver compras, antes do check-in' },
+      { t: '18:20', b: 'Chegar no aeroporto', q: 'Heathrow Airport Terminal 3', x: ' · check-in e bagagem despachada' },
       { t: '21:20', b: 'Decolagem LHR', x: ' · LA8085 · pousa em GRU às 04:45 (+1)' }
     ],
     boxLabel: 'ANTES DE SAIR', boxText: 'Conferir gavetas e cofre do hotel · abastecer antes de chegar a Heathrow · deixar troco em libras acessível',
@@ -511,7 +511,7 @@ const DAYS = [
         { b: 'Estrada: ', x: 'Lucknam Park → Heathrow leva ~1h45 pela M4, e mais de 2h30 com trânsito no fim do dia. Sair às 14h.' },
         { b: 'Carro: ', x: 'as locadoras de Heathrow ficam fora dos terminais; o shuttle até o terminal leva uns 15–20 min.' },
         { b: 'Check-in: ', x: 'LATAM costuma abrir 3h antes; bagagem despachada fecha 1h antes da partida.' },
-        { b: 'VAT refund: ', x: 'fazer antes de despachar as malas — o guichê pode pedir para ver as compras.' }
+        { b: 'Sem VAT refund: ', x: 'os guichês de devolução de imposto fecharam em 2021 — não perder tempo procurando no terminal.' }
       ] },
       { label: 'PARA A PRÓXIMA', items: [
         { b: 'Ficou de fora: ', x: 'Bath, Oxford, Windsor e os penhascos de Dover — todos a menos de 2h de Londres.' },
@@ -526,7 +526,103 @@ const DAYS = [
       { b: 'Voando para oeste→leste de volta', x: ' o jet lag é menor: chegar de manhã e aguentar até a noite resolve.' }
     ],
     photo: 'os dois no jardim do hotel, malas ao lado, antes de entrar no carro.',
-    must: 'o último café da manhã sem pressa. E conferir o cofre do quarto antes de sair.' }
+    must: 'o último café da manhã sem pressa. E conferir o cofre do quarto antes de sair.' },
+
+
+  { n: '11', date: '', tone: 'butter', icon: 'House', place: 'LONDRES · COTSWOLDS · BATH',
+    kicker: 'EXTRA · NÃO É UM DIA',
+    title: 'Compras para\na casa', meta: 'MODERN ENGLISH COUNTRY', bg: './bg-extra.webp',
+    rows: [
+      { t: 'LON', b: 'Londres', x: ' · Pimlico Road, Clerkenwell e Notting Hill' },
+      { t: 'CAM', b: 'Cotswolds e Bath', x: ' · Stow, Burford, Tetbury e Bath' }
+    ],
+    boxLabel: 'COMO USAR', boxText: 'Os dois próximos cards não são dias do roteiro: são lojas para a casa nova, marcadas com o dia em que abrem. Encaixar onde sobrar tempo.',
+    extra: [
+      { label: 'COMPRAR E TRAZER', items: [
+        { b: 'Não existe mais devolução de VAT ', x: 'no aeroporto: o Reino Unido acabou com isso em 2021. Não adianta guardar nota fiscal para o guichê.' },
+        { b: 'O jeito que restou: ', x: 'pedir para a própria loja despachar para o Brasil. Aí ela tira os 20% de VAT — mas entra imposto de importação aqui.' },
+        { b: 'Antes de comprar grande: ', x: 'medir o vão em casa, fotografar a peça com uma fita métrica do lado e pedir cotação de frete na hora.' },
+        { b: 'Domingo ', x: 'quase todo antiquário fecha, em Londres e no campo. Planejar as compras para os outros dias.' }
+      ] }
+    ],
+    backLabel: 'O QUE PROCURAR',
+    notes: [
+      { b: 'O estilo vive da mistura: ', x: 'uma peça antiga de madeira escura ao lado de algo novo e liso. Loja só de antiguidade ou só de design não fecha o visual sozinha.' },
+      { b: 'Tecido é o que mais vale trazer: ', x: 'linho pesado e estampas block-print ocupam pouco na mala e são caros de importar depois.' },
+      { b: 'Luminária de latão e cerâmica ', x: 'é a assinatura da casa inglesa moderna — só conferir se a loja vende com tomada e voltagem para troca aqui.' }
+    ],
+    photoLabel: 'Leva na mala', photo: 'tecido por metro, almofada, cerâmica, luminária pequena e amostra de tinta.',
+    mustLabel: 'Fica para o frete', must: 'móvel grande, pedra, lareira e peça de jardim — pedir cotação de envio antes de se apaixonar.' },
+
+  { n: '12', date: '', tone: 'sky', icon: 'Tower', place: 'LOJAS · LONDRES',
+    kicker: 'EXTRA · LOJAS EM LONDRES',
+    title: 'Lojas em\nLondres', meta: 'ANTIGUIDADES E TECIDO', bg: './bg-lojas-londres.webp',
+    rows: [
+      { t: 'QUA', b: 'Pimlico Road', q: 'Pimlico Road London', x: ' · Howe, Jamb, Soane e Rose Uniacke' },
+      { t: 'QUA', b: 'Robert Kime', q: 'Robert Kime Ebury Street London', x: ' · tecidos e antiguidades' },
+      { t: 'QUI', b: 'deVOL', q: 'deVOL Kitchens St Johns Square London', x: ' · cozinhas shaker, Clerkenwell' },
+      { t: 'QUI', b: 'Pentreath & Hall', q: 'Pentreath and Hall Rugby Street London', x: ' · abre só 14h–18h' },
+      { t: 'SEX', b: 'The Cloth Shop', q: 'The Cloth Shop Portobello Road London', x: ' · linho e mantas' },
+      { t: 'SÁB', b: 'Portobello antiguidades', q: 'Admiral Vernon Antiques Portobello Road', x: ' · só sábado, das 7h30' }
+    ],
+    boxLabel: 'PERTO DO HOTEL', boxText: 'Farrow & Ball na Fulham Rd, 12 min a pé: tintas e papel de parede. Fecha domingo.',
+    extra: [
+      { label: 'MAIS LOJAS', items: [
+        { b: 'Alfies Antique Market: ', x: 'quatro andares e 75 vendedores em Marylebone. Ter a sáb, 10h–18h. O melhor custo-benefício de tempo.' },
+        { b: 'Summerill & Bishop: ', x: 'cozinha e mesa posta — linho francês, louça e vidro. Portland Rd, Notting Hill, seg a sáb.' },
+        { b: 'Golborne Road: ', x: 'Les Couilles du Chien e vizinhos, antiguidades decorativas e de jardim. Seg a sáb, 10h–17h.' },
+        { b: 'LASSCO Brunswick House: ', x: 'demolição e jardim — portas, pedra e estátua, num casarão georgiano em Vauxhall. Só seg a sex.' }
+      ] },
+      { label: 'ANTES DE IR', items: [
+        { b: 'Design Centre Chelsea Harbour: ', x: '130 showrooms de tecido e móvel. Entrada livre, mas seg a sex e a maioria atende arquiteto — agendar o personal shopping.' },
+        { b: 'Pimlico Road inteira fecha domingo ', x: 'e a maioria abre sábado só até 16h ou 17h. A quarta é o melhor dia de vocês.' },
+        { b: 'Guinevere ', x: 'fechou a loja da King’s Road e hoje atende só com hora marcada em Chelsea Harbour. Vários sites ainda mostram o endereço antigo.' },
+        { b: 'Feira de Portobello: ', x: 'as galerias de antiguidade só funcionam no sábado. Na sexta ficam as lojas fixas, que já valem a ida.' }
+      ] }
+    ],
+    backLabel: 'COMO É CADA UMA',
+    notes: [
+      { b: 'Howe, no 93 da Pimlico Road, ', x: 'é a loja mais próxima do que vocês querem: antiguidade decorativa junto com estofado e tecido da casa.' },
+      { b: 'Jamb ', x: 'faz lareira e luminária de época e reprodução — é a referência do estilo, e os preços acompanham.' },
+      { b: 'Pentreath & Hall ', x: 'é a mais fácil de trazer na mala: gravura, cerâmica, cúpula e abajur pequeno.' }
+    ],
+    photoLabel: 'Dica de dia', photo: 'quarta em Pimlico Road, quinta em Clerkenwell depois da abadia, sexta em Notting Hill.',
+    mustLabel: 'Se sobrar tempo', must: 'Alfies Antique Market, em Marylebone — quatro andares e preço de verdade.' },
+
+  { n: '13', date: '', tone: 'sage', icon: 'Houses', place: 'LOJAS · COTSWOLDS E BATH',
+    kicker: 'EXTRA · LOJAS NO CAMPO',
+    title: 'Lojas nos\nCotswolds e Bath', meta: 'ANTIQUÁRIOS DO CAMPO', bg: './bg-lojas-campo.webp',
+    rows: [
+      { t: 'SÁB', b: 'Stow: Sheep Street', q: 'Sheep Street Stow-on-the-Wold', x: ' · três antiquários, a 8 min' },
+      { t: 'SÁB', b: 'Daylesford', q: 'Daylesford Organic Farmshop', x: ' · linho, louça e jardim' },
+      { t: 'DOM', b: 'Cotswold Grey', q: 'Cotswold Grey Moreton-in-Marsh', x: ' · antigo e novo, 10h–16h' },
+      { t: 'SEG', b: 'Burford Garden Co.', q: 'Burford Garden Company', x: ' · a mais completa, no caminho' },
+      { t: 'TER', b: 'Bath a pé', q: 'George Street Bath', x: ' · deVOL, Holloways e Graham & Green' },
+      { t: 'TER', b: 'Lorfords, Tetbury', q: 'Lorfords Antiques Babdown Airfield Tetbury', x: ' · dois hangares, a 35 min' }
+    ],
+    boxLabel: 'DOMINGO', boxText: 'No dia 27 quase todo antiquário fecha. Abrem Daylesford, Cotswold Grey e a Domestic Science, em Stow.',
+    extra: [
+      { label: 'O QUE TEM ONDE', items: [
+        { b: 'Stow-on-the-Wold: ', x: 'os antiquários ficam quase todos na Sheep Street. Huntington abre só de terça a sábado; os outros fecham domingo.' },
+        { b: 'Burford: ', x: 'o Antiques at The George, no 104 da High Street, tem três andares de vendedores e abre segunda e domingo.' },
+        { b: 'Architectural Heritage: ', x: 'estátua, fonte e vaso de pedra antigos, num solar perto de Stow. Seg a sex; sábado só com hora marcada.' },
+        { b: 'Tetbury: ', x: 'a cidade dos antiquários — Lorfords, Long Street Antiques e a loja de Highgrove. Tudo fecha domingo.' }
+      ] },
+      { label: 'BATH · TERÇA', items: [
+        { b: 'deVOL, 17 George St: ', x: 'a cozinha shaker ao vivo, com as ferragens, luminárias e azulejos.' },
+        { b: 'Holloways of Ludlow, Milsom St: ', x: 'luminária de latão e cerâmica, ferragem e torneira. A melhor parada de iluminação da viagem.' },
+        { b: 'Graham & Green, Walcot St: ', x: 'tapete, tecido estampado, abajur e móvel de palhinha — preço médio e fácil de trazer.' },
+        { b: 'Bartlett Street Antiques: ', x: 'o maior centro de antiguidades de Bath, seg a sáb, 10h–16h. Mais prata e miudeza que móvel.' }
+      ] }
+    ],
+    backLabel: 'AVISOS DO CAMPO',
+    notes: [
+      { b: 'Lorfords, em Tetbury, ', x: 'é o maior achado da região: dois hangares de aeroporto com mais de 80 vendedores. Fecha domingo, e fica a 35 min do Lucknam Park.' },
+      { b: 'Tetbury rende mais no dia 29, ', x: 'saindo do Lucknam Park, do que no dia 28 — de Lower Slaughter são quase uma hora de carro.' },
+      { b: 'Nenhuma das lojas confirma envio para o Brasil. ', x: 'Os grandes antiquários exportam sempre e arrumam despachante; as lojas de varejo, não.' }
+    ],
+    photoLabel: 'Dica de dia', photo: 'Stow no sábado, Daylesford no domingo, Burford na segunda e Bath na terça.',
+    mustLabel: 'Se for uma só', must: 'Lorfords, em Tetbury: é onde dá para achar a peça grande da casa.' }
 ];
 
 class Component extends DCLogic {
@@ -648,7 +744,7 @@ class Component extends DCLogic {
       const parts = d.title.split('\n');
       const bp = this.backPage(n, d);
       return {
-        kicker: 'Dia ' + d.n + ' · ' + d.date,
+        kicker: d.kicker || ('Dia ' + d.n + ' · ' + d.date),
         title1: parts[0], title2: parts[1] || '',
         meta: d.meta, notes: d.notes, place: d.place,
         rows: d.rows.map(r => Object.assign({}, r, {
@@ -657,6 +753,7 @@ class Component extends DCLogic {
         })),
         boxLabel: d.boxLabel, boxText: d.boxText, foot: d.foot || '',
         photo: d.photo || '', must: d.must || '',
+        photoLabel: d.photoLabel || 'A foto do dia', mustLabel: d.mustLabel || 'Imperdível',
         icPlane: d.icon === 'Plane', icTree: d.icon === 'Tree', icTower: d.icon === 'Tower',
         icTeapot: d.icon === 'Teapot', icHouses: d.icon === 'Houses', icTrain: d.icon === 'Train',
         icPlate: d.icon === 'Plate', icHouse: d.icon === 'House', icFeather: d.icon === 'Feather', icCar: d.icon === 'Car',
