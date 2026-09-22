@@ -1,5 +1,5 @@
 // Bump VERSION whenever any file changes, so phones pick up the new copy.
-const VERSION = 'guia-ing-v17';
+const VERSION = 'guia-ing-v18';
 const ASSETS = [
   './',
   './index.html',
@@ -18,8 +18,11 @@ const ASSETS = [
 ];
 
 self.addEventListener('install', (e) => {
-  e.waitUntil(caches.open(VERSION).then((c) => c.addAll(ASSETS)).then(() => self.skipWaiting()));
+  e.waitUntil(caches.open(VERSION).then((c) => c.addAll(ASSETS)));
 });
+
+// A página pede a troca quando o usuário toca em ATUALIZAR.
+self.addEventListener('message', (e) => { if (e.data === 'skip') self.skipWaiting(); });
 
 self.addEventListener('activate', (e) => {
   e.waitUntil(
