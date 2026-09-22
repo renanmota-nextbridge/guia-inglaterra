@@ -88,7 +88,7 @@
               <sc-for list="{{ day.rows }}" as="r" hint-placeholder-count="4">
                 <div style="display:flex;gap:12px;align-items:baseline">
                   <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;color:#6f6355;min-width:42px;flex:0 0 auto">{{ r.t }}</div>
-                  <div style="font-size:14.5px;line-height:1.45;text-wrap:pretty"><sc-if value="{{ r.url }}" hint-placeholder-val="{{ false }}"><a href="{{ r.url }}" target="_blank" rel="noopener" title="Abrir no Google Maps" style="display:inline-block;vertical-align:-2px;margin-right:5px;line-height:0;color:#8a7b67;text-decoration:none" style-hover="color:#463d36"><svg width="10" height="13" viewBox="0 0 10 13" fill="none" aria-hidden="true"><path d="M5 12.2C5 12.2 9 7.9 9 5A4 4 0 1 0 1 5c0 2.9 4 7.2 4 7.2Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"></path><circle cx="5" cy="4.9" r="1.35" fill="currentColor"></circle></svg></a></sc-if><b>{{ r.b }}</b><sc-if value="{{ r.alert }}" hint-placeholder-val="{{ false }}"><span style="display:inline-block;vertical-align:1px;margin-left:6px;padding:2px 7px 1px;border-radius:999px;background:#c8412f;color:#fff;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:8.5px;letter-spacing:0.12em;line-height:1.5;white-space:nowrap">⚠ {{ r.alert }}</span></sc-if>{{ r.x }}</div>
+                  <div style="font-size:14.5px;line-height:1.45;text-wrap:pretty"><sc-if value="{{ r.url }}" hint-placeholder-val="{{ false }}"><a href="{{ r.url }}" target="_blank" rel="noopener" title="Abrir no Google Maps" style="display:inline-block;vertical-align:-2px;margin-right:5px;line-height:0;color:#8a7b67;text-decoration:none" style-hover="color:#463d36"><svg width="10" height="13" viewBox="0 0 10 13" fill="none" aria-hidden="true"><path d="M5 12.2C5 12.2 9 7.9 9 5A4 4 0 1 0 1 5c0 2.9 4 7.2 4 7.2Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"></path><circle cx="5" cy="4.9" r="1.35" fill="currentColor"></circle></svg></a></sc-if><b>{{ r.b }}</b><sc-if value="{{ r.alert }}" hint-placeholder-val="{{ false }}"><span style="display:inline-block;vertical-align:1px;margin-left:6px;padding:2px 7px 1px;border-radius:999px;background:#c8412f;color:#fff;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:8.5px;letter-spacing:0.12em;line-height:1.5;white-space:nowrap">⚠ {{ r.alert }}</span></sc-if><sc-if value="{{ r.route }}" hint-placeholder-val="{{ false }}"><span style="{{ r.routeStyle }}">{{ r.route }}</span></sc-if>{{ r.x }}</div>
                 </div>
               </sc-for>
               <sc-if value="{{ day.boxText }}" hint-placeholder-val="{{ true }}">
@@ -205,6 +205,7 @@ const PAL = {
   butter:{ head: '#f0e5c9', back: '#f9f2e0', btn: '#f0e5c9', ink: '#544a31', veil: 'rgba(249,239,214,.94)' }
 };
 
+const ROUTE = { AZUL: '#2f62a8', VERM: '#c0392b', VERDE: '#2f7d4f' };
 const ICOL = { '01':'#7B9FD4','02':'#6AA57C','03':'#4A7FB5','04':'#B08F52','05':'#C4738B','06':'#5C9A6B','07':'#B08A44','08':'#4F8C69','09':'#B67689','10':'#6B8CBA','11':'#8A7B67','12':'#4A7FB5','13':'#5C9A6B' };
 
 const DAYS = [
@@ -272,11 +273,11 @@ const DAYS = [
   { n: '03', date: 'qua 23 set', tone: 'blush', icon: 'Tower', place: 'SOUTH BANK',
     title: 'South Bank\ne os clássicos', meta: 'ÔNIBUS HOP-ON HOP-OFF', bg: './bg-03.webp',
     rows: [
-      { t: '09:30', b: 'Big Bus', q: 'Gloucester Road Station London', x: ' · rota AZUL, parada 36' },
-      { t: '10:30', b: 'Westminster', q: 'Westminster Bridge London', x: ' · parada 11 · Big Ben e a ponte' },
-      { t: '12:00', b: 'South Bank', q: 'Southbank Centre London', x: ' · a pé, almoço no mercadinho' },
-      { t: '14:00', b: 'Tate Modern', q: 'Tate Modern London', x: ' · terraço de graça' },
-      { t: '16:00', b: 'Barco até a Tower', q: 'Westminster Pier London', x: ' · parada 21, Westminster Pier' },
+      { t: '09:30', b: 'Big Bus', route: 'AZUL 36', q: 'Gloucester Road Station London', x: ' · em frente à estação' },
+      { t: '10:30', b: 'Westminster', route: 'AZUL 11', q: 'Westminster Bridge London', x: ' · Big Ben e a ponte' },
+      { t: '12:00', b: 'South Bank', route: 'A PÉ', q: 'Southbank Centre London', x: ' · almoço no mercadinho' },
+      { t: '14:00', b: 'Tate Modern', route: 'A PÉ', q: 'Tate Modern London', x: ' · terraço de graça' },
+      { t: '16:00', b: 'Barco até a Tower', route: 'AZUL 21', q: 'Westminster Pier London', x: ' · Westminster Pier' },
       { t: '19:30', b: 'Emilia\u2019s Pasta', q: "Emilia's Crafted Pasta St Katharine Docks", x: ' · St Katharine Docks' }
     ],
     boxLabel: 'BIG BUS', boxText: 'Do hotel só passa a rota AZUL (parada 36) — último ônibus às 18h05. Ativar no app só ao subir.',
@@ -287,7 +288,7 @@ const DAYS = [
         { b: 'A ponte de Westminster ', x: 'é verde como os bancos da Câmara dos Comuns; a de Lambeth, logo ao lado, é vermelha como os da Câmara dos Lordes.' }
       ] },
       { label: 'GUIA DO DIA', items: [
-        { b: 'As três cores: ', x: 'AZUL passa em Kensington, Notting Hill, Paddington e no centro. VERMELHA faz Mayfair, Marble Arch e o centro. VERDE é um anel curto no British Museum e King\u2019s Cross.' },
+        { b: 'As três cores: ', x: 'AZUL passa em Kensington, Notting Hill, Paddington e no centro — é a de vocês. VERMELHA faz Mayfair e Marble Arch, e atende as mesmas paradas do centro. VERDE é um anel curto no British Museum e King\u2019s Cross.' },
         { b: 'O trecho do meio é a pé: ', x: 'não há parada no Tate Modern. Da ponte de Westminster até lá são 25 min pela margem, e a volta ao Westminster Pier é o mesmo caminho.' },
         { b: 'Barco: ', x: 'sai do Westminster Pier (parada 21) e leva uns 40 min até a Tower. Mostrar o ingresso do ônibus para embarcar.' },
         { b: 'Jantar: ', x: 'o Emilia\u2019s de St Katharine Docks fica a 5 min a pé da Tower Bridge, na marina. Vale reservar.' }
@@ -749,6 +750,8 @@ class Component extends DCLogic {
         meta: d.meta, notes: d.notes, place: d.place,
         rows: d.rows.map(r => Object.assign({}, r, {
           alert: r.alert || '',
+          route: r.route || '',
+          routeStyle: 'display:inline-block;vertical-align:1px;margin-left:6px;padding:2px 8px 1px;border-radius:999px;color:#fff;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:8.5px;letter-spacing:0.12em;line-height:1.5;white-space:nowrap;background:' + (ROUTE[(r.route || '').split(' ')[0]] || '#8a7b67') + ';',
           url: r.q ? 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(r.q) : ''
         })),
         boxLabel: d.boxLabel, boxText: d.boxText, foot: d.foot || '',
