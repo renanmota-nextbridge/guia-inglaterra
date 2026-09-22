@@ -272,40 +272,40 @@ const DAYS = [
   { n: '03', date: 'qua 23 set', tone: 'blush', icon: 'Tower', place: 'SOUTH BANK',
     title: 'South Bank\ne os clássicos', meta: 'ÔNIBUS HOP-ON HOP-OFF', bg: './bg-03.webp',
     rows: [
-      { alert: 'INGRESSO', t: '09:30', b: 'Ônibus turístico', x: ' · ver a cidade de cima' },
-      { t: '11:00', b: 'Buckingham Palace', q: 'Buckingham Palace London', x: ' · troca da guarda às 11h' },
-      { t: '12:30', b: 'Big Ben', q: 'Westminster Bridge London', x: ' · e a ponte para a margem sul' },
-      { alert: 'INGRESSO', t: '14:30', b: 'London Eye', q: 'London Eye', x: ' · almoço no South Bank e a roda' },
-      { t: '17:30', b: 'Tower Bridge', q: 'Tower Bridge London', x: ' · pôr do sol no rio' },
-      { alert: 'RESERVAR', t: '19:30', b: 'Emilia\u2019s Pasta', q: 'Emilia\'s Crafted Pasta St Katharine Docks', x: ' · St Katharine Docks, ao lado da ponte' }
+      { t: '09:30', b: 'Big Bus', q: 'Gloucester Road Station London', x: ' · embarque na Gloucester Road' },
+      { t: '10:30', b: 'Westminster', q: 'Westminster Bridge London', x: ' · Big Ben, Parlamento e a ponte' },
+      { t: '12:00', b: 'South Bank', q: 'Southbank Centre London', x: ' · almoço no mercadinho' },
+      { t: '14:00', b: 'Tate Modern', q: 'Tate Modern London', x: ' · terraço de graça e a Millennium Bridge' },
+      { t: '16:00', b: 'Barco até a Tower', q: 'Westminster Pier London', x: ' · Westminster Pier → Tower Pier' },
+      { alert: 'RESERVAR', t: '19:30', b: 'Emilia\u2019s Pasta', q: "Emilia's Crafted Pasta St Katharine Docks", x: ' · St Katharine Docks, ao lado da ponte' }
     ],
-    boxLabel: 'PÉS', boxText: 'Dia de muita caminhada — tênis confortável.',
+    boxLabel: 'BIG BUS', boxText: 'Ativar o ingresso no app só ao subir: as 24h começam aí. O barco entra no ticket Discover.',
     extra: [
       { label: 'MAIS CURIOSIDADES', items: [
-        { b: 'O London Eye ', x: 'foi construído como atração temporária para o milênio, com 5 anos de permissão. Nunca saiu.' },
+        { b: 'A Tate Modern ', x: 'era a usina elétrica de Bankside, desligada em 1981 e transformada em museu no ano 2000.' },
         { b: 'No Parlamento, ', x: 'ninguém pode morrer oficialmente — a tradição diz que renderia funeral de Estado. É lenda, mas todo guia conta.' },
         { b: 'A ponte de Westminster ', x: 'é verde como os bancos da Câmara dos Comuns; a de Lambeth, logo ao lado, é vermelha como os da Câmara dos Lordes.' }
       ] },
       { label: 'GUIA DO DIA', items: [
-        { b: 'Troca da guarda: ', x: 'às 11h, em dias alternados — confirmar no site da Household Division na véspera. Chuva cancela.' },
+        { b: 'Big Bus: ', x: 'o último ônibus de cada rota sai bem antes do anoitecer — conferir no app para não ficar a pé longe do hotel.' },
         { b: 'Melhor vista de graça: ', x: 'o terraço do Tate Modern e a ponte do Millennium, ambos no South Bank.' },
-        { b: 'London Eye: ', x: 'comprar horário marcado online evita 40 min de fila.' },
+        { b: 'Barco: ', x: 'embarca no Westminster Pier ou no Tower Pier mostrando o ingresso; a travessia leva uns 40 min.' },
         { b: 'Jantar: ', x: 'o Emilia\u2019s de St Katharine Docks fica a 5 min a pé da Tower Bridge, na marina. Vale reservar.' }
       ] }
     ],
     backLabel: 'CURIOSIDADES · SOUTH BANK',
     notes: [
       { b: 'Big Ben', x: ' é o nome do sino, não da torre — ela se chama Elizabeth Tower desde 2012.' },
-      { b: 'No Palácio de Buckingham', x: ' a bandeira diz se o rei está em casa: Royal Standard hasteada quando está, Union Jack quando não.' },
+      { b: 'O Tâmisa tem maré:', x: ' a água sobe e desce vários metros duas vezes por dia — por isso as escadinhas de pedra nas margens.' },
       { b: 'A Tower Bridge', x: ' ainda abre cerca de 800 vezes por ano; o horário das aberturas é publicado com antecedência.' }
     ],
-    photo: 'o Big Ben inteiro da ponte de Westminster, lado sul, no fim da tarde.',
-    must: 'a troca da guarda em Buckingham — chegar 40 min antes para pegar lugar na grade.' },
+    photo: 'o Big Ben inteiro da ponte de Westminster, lado sul, no meio da manhã.',
+    must: 'o terraço do Tate Modern: a melhor vista de Londres que não se paga.' },
 
   { n: '04', date: 'qui 24 set', tone: 'butter', icon: 'Teapot', place: 'WESTMINSTER · BOROUGH',
     title: 'Abadia e\nBorough Market', meta: 'COMER BEM O DIA INTEIRO', bg: './bg-04.webp', mirror: true,
     rows: [
-      { alert: 'INGRESSO', t: '11:00', b: 'Abadia de Westminster', q: 'Westminster Abbey London', x: ' · horário marcado (~1h30)' },
+      { t: '11:00', b: 'Abadia de Westminster', q: 'Westminster Abbey London', x: ' · horário marcado (~1h30)' },
       { t: '13:00', b: 'Borough Market', q: 'Borough Market London', x: ' · almoço no mercado' },
       { t: '15:00', b: 'Penhaligon\u2019s', q: 'Penhaligon\'s Covent Garden London', x: ' · escolher um perfume' },
       { t: '18:30', b: 'Piccadilly Circus', q: 'Piccadilly Circus London', x: ' e Chinatown · luzes e passeio' },
@@ -338,7 +338,7 @@ const DAYS = [
     title: 'Notting Hill\ne Camden', meta: 'BAIRROS E FEIRINHAS', bg: './bg-05.webp',
     rows: [
       { t: '10:00', b: 'Portobello Road', q: 'Portobello Road Market London', x: ' · feirinha de antiquários e as casas coloridas' },
-      { alert: 'RESERVAR', t: '13:00', b: 'Almoço', x: ' · Gold Notting Hill', q: 'Gold Notting Hill London' },
+      { t: '13:00', b: 'Almoço', x: ' · Gold Notting Hill', q: 'Gold Notting Hill London' },
       { t: '15:30', b: 'Camden Town', q: 'Camden Market London', x: ' · Camden Lock, barraquinhas e o canal' },
       { t: '18:00', b: 'Pub bem inglês', x: ' · uma pint antes do jantar' },
       { t: '19:30', b: 'Flat Iron', x: ' · jantar sem reserva, chegar cedo' }
@@ -370,7 +370,7 @@ const DAYS = [
     title: 'De carro para\nos Cotswolds', meta: 'DIA LIVRE · SEM ROTEIRO', bg: './bg-06.webp',
     rows: [
       { t: '10:00', b: 'Check-out', x: ' do The Kensington, sem pressa' },
-      { alert: 'RESERVAR', t: '11:00', b: 'Retirar o carro', x: ' · conferir riscos, combustível e seguro' },
+      { alert: 'CONFIRMAR', t: '11:00', b: 'Retirar o carro', x: ' · conferir riscos, combustível e seguro' },
       { t: '11:30', b: 'Estrada', x: ' · Londres → Lower Slaughter pela M40/A40 (~2h)' },
       { t: '14:00', b: 'The Slaughters Manor House', q: 'The Slaughters Manor House', x: ' · check-in e tarde livre' },
       { t: '19:30', b: 'Jantar no hotel', x: ' · reserva confirmada' }
@@ -467,12 +467,12 @@ const DAYS = [
     title: 'Só curtir\no hotel', meta: 'ÚLTIMO DIA INTEIRO · SEM AGENDA', bg: './bg-09.webp',
     rows: [
       { t: '09:30', b: 'Café da manhã', x: ' · longo e sem despertador' },
-      { alert: 'RESERVAR', t: '11:00', b: 'Spa', q: 'Lucknam Park Hotel & Spa', x: ' · piscina, sauna e massagem em casal' },
-      { alert: 'RESERVAR', t: '13:30', b: 'Chá da tarde', x: ' · na Drawing Room, no lugar do almoço' },
-      { t: '15:30', b: 'Jardins e alameda', x: ' · caminhada curta e livro' },
+      { t: '11:00', b: 'Piscina e sauna', q: 'Lucknam Park Hotel & Spa', x: ' · sem hora marcada, o dia todo' },
+      { t: '13:00', b: 'Jardins e alameda', x: ' · caminhada curta e livro' },
+      { alert: 'CONFIRMAR', t: '15:00', b: 'Chá da tarde', x: ' · na Drawing Room, no lugar do almoço' },
       { alert: 'RESERVAR', t: '19:30', b: 'Último jantar', x: ' · brindar a viagem' }
     ],
-    boxLabel: 'RESERVAR ANTES', boxText: 'Chá da tarde e spa: ligar para o hotel, 01225 742777, com 24h de antecedência. O chá é das 13h30 às 15h30.',
+    boxLabel: 'CONFIRMAR', boxText: 'Chá das 15h e o último jantar: 01225 742777. O chá é servido das 13h30 às 15h30, então 15h é o último horário.',
     extra: [
       { label: 'MAIS CURIOSIDADES', items: [
         { b: 'A palavra spa ', x: 'vem da cidade belga de Spa, mas foram os banhos romanos de Bath, a uns 20 min daqui, que criaram o hábito na Inglaterra.' },
@@ -480,7 +480,7 @@ const DAYS = [
         { b: 'Wiltshire ', x: 'é o condado de Stonehenge e de Avebury, os dois círculos de pedra mais famosos da Inglaterra.' }
       ] },
       { label: 'GUIA DO DIA', items: [
-        { b: 'Spa: ', x: 'chegar 30 min antes do tratamento para usar sauna e piscina.' },
+        { b: 'Piscina e sauna: ', x: 'ficam abertas o dia todo para hóspedes, sem agendar. Levar roupão do quarto.' },
         { b: 'Jantar: ', x: 'pedir a mesa junto à janela na reserva. É a última noite da viagem.' },
         { b: 'Compras: ', x: 'não há mais devolução de imposto no aeroporto desde 2021 — só sai sem os 20% se a própria loja enviar para o Brasil.' },
         { b: 'Malas: ', x: 'arrumar hoje — amanhã é dia de estrada e de devolver o carro.' },
