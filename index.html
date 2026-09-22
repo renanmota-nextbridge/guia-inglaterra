@@ -303,16 +303,15 @@ const DAYS = [
     must: 'a troca da guarda em Buckingham — chegar 40 min antes para pegar lugar na grade.' },
 
   { n: '04', date: 'qui 24 set', tone: 'butter', icon: 'Teapot', place: 'WESTMINSTER · BOROUGH',
-    title: 'Abadia, mercado\ne chá da tarde', meta: 'COMER BEM O DIA INTEIRO', bg: './bg-04.webp', mirror: true,
+    title: 'Abadia e\nBorough Market', meta: 'COMER BEM O DIA INTEIRO', bg: './bg-04.webp', mirror: true,
     rows: [
-      { alert: 'INGRESSO', t: '09:30', b: 'Abadia de Westminster', q: 'Westminster Abbey London', x: ' · na abertura (~1h30)' },
-      { t: '11:30', b: 'Borough Market', q: 'Borough Market London', x: ' · almoço no mercado' },
-      { t: '13:30', b: 'Penhaligon\u2019s', q: 'Penhaligon\'s Covent Garden London', x: ' · escolher um perfume' },
-      { alert: 'RESERVAR', t: '15:30', b: 'Chá da tarde clássico', x: ' · leva ~2h' },
+      { alert: 'INGRESSO', t: '11:00', b: 'Abadia de Westminster', q: 'Westminster Abbey London', x: ' · horário marcado (~1h30)' },
+      { t: '13:00', b: 'Borough Market', q: 'Borough Market London', x: ' · almoço no mercado' },
+      { t: '15:00', b: 'Penhaligon\u2019s', q: 'Penhaligon\'s Covent Garden London', x: ' · escolher um perfume' },
       { t: '18:30', b: 'Piccadilly Circus', q: 'Piccadilly Circus London', x: ' e Chinatown · luzes e passeio' },
       { alert: 'RESERVAR', t: '20:30', b: 'The Ivy', q: 'The Ivy West Street London', x: ' · jantar em Covent Garden' }
     ],
-    boxLabel: 'RESERVAS', boxText: 'Chá da tarde e The Ivy: reservar com antecedência.',
+    boxLabel: 'INGRESSO', boxText: 'A abadia fecha às 15h30 e o ingresso tem horário marcado — chegar uns 20 min antes, tem revista na entrada.',
     extra: [
       { label: 'MAIS CURIOSIDADES', items: [
         { b: 'O Borough ', x: 'quase fechou nos anos 1990: foi salvo virando mercado gourmet, quando os atacadistas foram para Nine Elms.' },
@@ -322,18 +321,18 @@ const DAYS = [
       { label: 'GUIA DO DIA', items: [
         { b: 'Abadia: ', x: 'comprar o ingresso online com horário e chegar na abertura. Westminster → London Bridge é 10 min de metrô, linha Jubilee.' },
         { b: 'No Borough: ', x: 'chegar antes do meio-dia, quando enche. O sanduíche de porco é do Roast Hog, e os morangos com chocolate ficam na banca da entrada da Stoney St.' },
-        { b: 'Chá da tarde: ', x: 'reservar com semanas de antecedência. Homem costuma precisar de calça e sapato fechado.' },
+        { b: 'Audioguia: ', x: 'está incluso no ingresso e tem português. A visita leva de 1h30 a 2h.' },
         { b: 'The Ivy: ', x: 'o original fica na West Street, em Covent Garden — dá para ir a pé de Piccadilly depois do passeio.' }
       ] }
     ],
-    backLabel: 'CURIOSIDADES · ABADIA E CHÁ',
+    backLabel: 'CURIOSIDADES · ABADIA E MERCADO',
     notes: [
       { b: 'O Borough Market', x: ' tem registros de comércio de comida no mesmo pedaço de Southwark desde o século XII.' },
-      { b: 'O afternoon tea', x: ' foi invenção da duquesa de Bedford, nos anos 1840, para segurar a fome entre o almoço e o jantar tardio.' },
+      { b: 'A Penhaligon\u2019s', x: ' nasceu em 1870 de um barbeiro da corte; várias fragrâncias da casa são as mesmas do catálogo vitoriano.' },
       { b: 'A Abadia de Westminster', x: ' recebe coroações desde 1066: são quase mil anos de reis coroados no mesmo ponto.' }
     ],
-    photo: 'a torre de doces do chá da tarde com as duas taças na frente.',
-    must: 'o sanduíche de porco trufado do Borough Market. Come-se de baixo para cima no chá: sanduíche, scone, doce.' },
+    photo: 'a fachada da abadia vista do Dean\u2019s Yard, sem a multidão da entrada.',
+    must: 'o sanduíche de porco trufado do Borough Market — a fila anda rápido e vale cada minuto.' },
 
   { n: '05', date: 'sex 25 set', tone: 'blush', icon: 'Houses', place: 'NOTTING HILL · CAMDEN',
     title: 'Notting Hill\ne Camden', meta: 'BAIRROS E FEIRINHAS', bg: './bg-05.webp',
@@ -469,22 +468,23 @@ const DAYS = [
     rows: [
       { t: '09:30', b: 'Café da manhã', x: ' · longo e sem despertador' },
       { alert: 'RESERVAR', t: '11:00', b: 'Spa', q: 'Lucknam Park Hotel & Spa', x: ' · piscina, sauna e massagem em casal' },
-      { t: '13:30', b: 'Almoço leve', x: ' no hotel' },
-      { t: '15:30', b: 'Jardins e alameda', x: ' · caminhada curta, livro e chá' },
+      { alert: 'RESERVAR', t: '13:30', b: 'Chá da tarde', x: ' · na Drawing Room, no lugar do almoço' },
+      { t: '15:30', b: 'Jardins e alameda', x: ' · caminhada curta e livro' },
       { alert: 'RESERVAR', t: '19:30', b: 'Último jantar', x: ' · brindar a viagem' }
     ],
-    boxLabel: 'MALAS', boxText: 'Arrumar as malas hoje: amanhã é dia de estrada e de devolver o carro, e as comprinhas ocupam mais espaço do que parecem.',
+    boxLabel: 'RESERVAR ANTES', boxText: 'Chá da tarde e spa: ligar para o hotel, 01225 742777, com 24h de antecedência. O chá é das 13h30 às 15h30.',
     extra: [
       { label: 'MAIS CURIOSIDADES', items: [
         { b: 'A palavra spa ', x: 'vem da cidade belga de Spa, mas foram os banhos romanos de Bath, a uns 20 min daqui, que criaram o hábito na Inglaterra.' },
-        { b: 'O afternoon tea ', x: 'foi invenção da duquesa de Bedford, nos anos 1840, para segurar a fome entre o almoço e o jantar tardio.' },
+        { b: 'O afternoon tea ', x: 'foi invenção da duquesa de Bedford, nos anos 1840 — come-se de baixo para cima: sanduíche, scone, doce.' },
         { b: 'Wiltshire ', x: 'é o condado de Stonehenge e de Avebury, os dois círculos de pedra mais famosos da Inglaterra.' }
       ] },
       { label: 'GUIA DO DIA', items: [
         { b: 'Spa: ', x: 'chegar 30 min antes do tratamento para usar sauna e piscina.' },
         { b: 'Jantar: ', x: 'pedir a mesa junto à janela na reserva. É a última noite da viagem.' },
         { b: 'Compras: ', x: 'não há mais devolução de imposto no aeroporto desde 2021 — só sai sem os 20% se a própria loja enviar para o Brasil.' },
-        { b: 'Se bater vontade de sair: ', x: 'Castle Combe fica a 15 min e Bath a uns 20. Mas hoje a ideia é não ter ideia.' }
+        { b: 'Malas: ', x: 'arrumar hoje — amanhã é dia de estrada e de devolver o carro.' },
+        { b: 'Se bater vontade de sair: ', x: 'Castle Combe a 15 min, Bath a uns 20. Mas hoje a ideia é não ter ideia.' }
       ] }
     ],
     backLabel: 'CURIOSIDADES · LUCKNAM PARK',
